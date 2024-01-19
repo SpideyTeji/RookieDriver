@@ -1,0 +1,18 @@
+﻿@page "/question"
+@using RookieDriver.Models
+<h3>Question</h3>
+<h2>@Q1.Description</h2>
+<h2>@Q1.OptionA </h2>
+@code {
+    private Question Q1;
+    protected override async Task OnInitializedAsync()
+    {
+        Q1 = new Question();
+        Q1.Description = "How was your day?";
+        Q1.OptionA = "Bad";
+        Q1.OptionB = "Fine";
+        Q1.OptionC = "Good";
+        Q1.OptionD = "Great";
+        Q1.CorrectAnswer = "Great";
+    }
+}
