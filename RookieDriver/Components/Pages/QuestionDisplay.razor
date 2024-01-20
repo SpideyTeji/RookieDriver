@@ -1,63 +1,83 @@
 ﻿@page "/question"
 @using RookieDriver.Models
+@rendermode InteractiveServer
+
 <h3>Question</h3>
 
 
 <div class="form-group">
     <label>
-        @Q1.Description
+        @DisplayQuestion.Description
     </label>
 </div>
 <div>
-    <InputRadioGroup Name="Options" @bind-Value="@Q1.UserAnswer">
+    <InputRadioGroup Name="Options" @bind-Value="@DisplayQuestion.UserAnswer">
         <div>
             <label>
-                <InputRadio Value="@Q1.OptionA" /> @Q1.OptionA
+                <InputRadio Value="@DisplayQuestion.OptionA" /> @DisplayQuestion.OptionA
             </label>
         </div>
         <div>
             <label>
-                <InputRadio Value="@Q1.OptionB" /> @Q1.OptionB
+                <InputRadio Value="@DisplayQuestion.OptionB" /> @DisplayQuestion.OptionB
             </label>
         </div>
         <div>
             <label>
-                <InputRadio Value="@Q1.OptionC" /> @Q1.OptionC
+                <InputRadio Value="@DisplayQuestion.OptionC" /> @DisplayQuestion.OptionC
             </label>
         </div>
         <div>
             <label>
-                <InputRadio Value="@Q1.OptionD" /> @Q1.OptionD
+                <InputRadio Value="@DisplayQuestion.OptionD" /> @DisplayQuestion.OptionD
             </label>
         </div>
     </InputRadioGroup>
 </div>
-<button class="btn btn-dark" @onclick="Next">
+<button class="btn btn-dark" @onclick="@Next">
     Next Question
 </button>
 
 @code {
-    private Question Q1;
+    private Question DisplayQuestion;
+    private List<Question> QArr;
+    private int index = 0;
+    /// <summary>
+    /// To Start off your page with initial Data
+    /// </summary>
     protected override void OnInitialized()
     {
-        Q1 = new Question();
-        Q1.Description = "How was your day?";
-        Q1.OptionA = "Bad";
-        Q1.OptionB = "Fine";
-        Q1.OptionC = "Good";
-        Q1.OptionD = "Great";
-        Q1.CorrectAnswer = "Great";
+        QArr = new List<Question>();
+
+        var q1 = new Question()
+            {
+                Description = "How was your day?",
+                OptionA = "Bad",
+                OptionB = "Fine",
+                OptionC = "Good",
+                OptionD = "Great",
+                CorrectAnswer = "Great"
+            };
+        var q2 = new Question()
+            {
+                Description = "How was school?",
+                OptionA = "Bad",
+                OptionB = "Badder",
+                OptionC = "Worse",
+                OptionD = "Worst",
+                CorrectAnswer = "Worst",
+            };
+
+        QArr.Add(q1);
+        QArr.Add(q2);
+
+        DisplayQuestion = QArr[index];
     }
-    
+
     public void Next()
     {
-        Q1 = new Question();
-        Q1.Description = "How was school?";
-        Q1.OptionA = "Bad";
-        Q1.OptionB = "Badder";
-        Q1.OptionC = "Worse";
-        Q1.OptionD = "Worst";
-        Q1.CorrectAnswer = "Worst";
+        index++;
+        DisplayQuestion = QArr[index];
     }
 }
 
