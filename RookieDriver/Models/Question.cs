@@ -10,6 +10,7 @@ namespace RookieDriver.Models
         public string OptionC { get; set; }
         public string OptionD { get; set; }
         public string CorrectAnswer { get; set; }
+        public string UserAnswer { get; set; }
        
 
         public bool IsAnswerCorrect (string UserAnswer)

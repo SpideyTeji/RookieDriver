@@ -1,11 +1,44 @@
 ﻿@page "/question"
 @using RookieDriver.Models
 <h3>Question</h3>
-<h2>@Q1.Description</h2>
-<h2>@Q1.OptionA </h2>
+
+
+<div class="form-group">
+    <label>
+        @Q1.Description
+    </label>
+</div>
+<div>
+    <InputRadioGroup Name="Options" @bind-Value="@Q1.UserAnswer">
+        <div>
+            <label>
+                <InputRadio Value="@Q1.OptionA" /> @Q1.OptionA
+            </label>
+        </div>
+        <div>
+            <label>
+                <InputRadio Value="@Q1.OptionB" /> @Q1.OptionB
+            </label>
+        </div>
+        <div>
+            <label>
+                <InputRadio Value="@Q1.OptionC" /> @Q1.OptionC
+            </label>
+        </div>
+        <div>
+            <label>
+                <InputRadio Value="@Q1.OptionD" /> @Q1.OptionD
+            </label>
+        </div>
+    </InputRadioGroup>
+</div>
+<button class="btn btn-dark" @onclick="Next">
+    Next Question
+</button>
+
 @code {
     private Question Q1;
-    protected override async Task OnInitializedAsync()
+    protected override void OnInitialized()
     {
         Q1 = new Question();
         Q1.Description = "How was your day?";
@@ -15,4 +48,17 @@
         Q1.OptionD = "Great";
         Q1.CorrectAnswer = "Great";
     }
+    
+    public void Next()
+    {
+        Q1 = new Question();
+        Q1.Description = "How was school?";
+        Q1.OptionA = "Bad";
+        Q1.OptionB = "Badder";
+        Q1.OptionC = "Worse";
+        Q1.OptionD = "Worst";
+        Q1.CorrectAnswer = "Worst";
+    }
 }
+
+
