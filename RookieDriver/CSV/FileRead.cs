@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using RookieDriver.Models;
 
-namespace RookieDriver.csv
+namespace RookieDriver.CSV
 {
     public class FileRead
     {
