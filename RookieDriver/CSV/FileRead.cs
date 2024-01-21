@@ -1,16 +1,19 @@
-﻿using System.Formats.Asn1;
-using System.Globalization;
-using System;
-using CsvHelper.Configuration;
+﻿using CsvHelper.Configuration;
 using CsvHelper;
+using System;
+using System.Collections.Generic;
+using System.Globalization;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using RookieDriver.Models;
 
-namespace RookieDriver.CSV
+namespace RookieDriver.csv
 {
     public class FileRead
     {
-        public string Filepath = "QuestionBank.csv";
-        public void ReadQuestions()
+        public string Filepath = "C:\\Users\\tejis\\source\\repos\\RookieDriver\\RookieDriver\\Data\\QuestionBank.csv";
+        public List<Question> ReadQuestions()
         {
             try
             {
@@ -19,7 +22,7 @@ namespace RookieDriver.CSV
 
                     var config = new CsvConfiguration(CultureInfo.InvariantCulture)
                     {
-                        HasHeaderRecord = false
+                        HasHeaderRecord = true
                     };
                     using (StreamReader streamReader = new StreamReader(Filepath))
                     using (CsvReader csvReader = new CsvReader(streamReader, config))
@@ -28,18 +31,16 @@ namespace RookieDriver.CSV
                         // Read records from the CSV file
                         IEnumerable<Question> records = csvReader.GetRecords<Question>();
 
-                        // Process each record
-                        foreach (Question question in records)
-                        {
-                            Console.WriteLine($"Name: {question.Description}");
-                        }
+                        return records.ToList();
                     }
                 }
             }
             catch (Exception ex)
             {
-                throw;
+                return new List<Question>();
             }
+
+            return new List<Question>();
         }
     }
 }

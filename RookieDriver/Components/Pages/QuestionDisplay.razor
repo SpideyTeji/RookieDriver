@@ -1,4 +1,5 @@
 ﻿@page "/question"
+@using RookieDriver.CSV
 @using RookieDriver.Models
 @rendermode InteractiveServer
 
@@ -27,11 +28,6 @@
                 <InputRadio Value="@DisplayQuestion.OptionC" /> @DisplayQuestion.OptionC
             </label>
         </div>
-        <div>
-            <label>
-                <InputRadio Value="@DisplayQuestion.OptionD" /> @DisplayQuestion.OptionD
-            </label>
-        </div>
     </InputRadioGroup>
 </div>
 <button class="btn btn-dark" @onclick="@Next">
@@ -47,29 +43,8 @@
     /// </summary>
     protected override void OnInitialized()
     {
-        QArr = new List<Question>();
-
-        var q1 = new Question()
-            {
-                Description = "How was your day?",
-                OptionA = "Bad",
-                OptionB = "Fine",
-                OptionC = "Good",
-                OptionD = "Great",
-                CorrectAnswer = "Great"
-            };
-        var q2 = new Question()
-            {
-                Description = "How was school?",
-                OptionA = "Bad",
-                OptionB = "Badder",
-                OptionC = "Worse",
-                OptionD = "Worst",
-                CorrectAnswer = "Worst",
-            };
-
-        QArr.Add(q1);
-        QArr.Add(q2);
+        FileRead fileRead = new FileRead();
+        QArr = fileRead.ReadQuestions();
 
         DisplayQuestion = QArr[index];
     }
