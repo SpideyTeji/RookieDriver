@@ -13,7 +13,7 @@ namespace RookieDriver.CSV
     public class FileRead
     {
         public string Filepath = "C:\\Users\\tejis\\source\\repos\\RookieDriver\\RookieDriver\\Data\\QuestionBank.csv";
-        public List<Question> ReadQuestions()
+        public List<QuestionCSV> ReadQuestions()
         {
             try
             {
@@ -29,7 +29,7 @@ namespace RookieDriver.CSV
                     {
 
                         // Read records from the CSV file
-                        IEnumerable<Question> records = csvReader.GetRecords<Question>();
+                        IEnumerable<QuestionCSV> records = csvReader.GetRecords<QuestionCSV>();
 
                         return records.ToList();
                     }
@@ -37,10 +37,10 @@ namespace RookieDriver.CSV
             }
             catch (Exception ex)
             {
-                return new List<Question>();
+                return new List<QuestionCSV>();
             }
 
-            return new List<Question>();
+            return new List<QuestionCSV>();
         }
     }
 }

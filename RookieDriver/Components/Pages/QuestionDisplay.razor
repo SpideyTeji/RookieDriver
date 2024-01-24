@@ -1,5 +1,5 @@
 ﻿@page "/question"
-@using RookieDriver.CSV
+@using RookieDriver.JSON
 @using RookieDriver.Models
 @rendermode InteractiveServer
 
@@ -43,7 +43,7 @@
     /// </summary>
     protected override void OnInitialized()
     {
-        FileRead fileRead = new FileRead();
+        JsonReader fileRead = new JsonReader();
         QArr = fileRead.ReadQuestions();
 
         DisplayQuestion = QArr[index];
