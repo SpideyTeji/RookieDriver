@@ -3,42 +3,73 @@
 @using RookieDriver.Models
 @rendermode InteractiveServer
 
-<h3>Question</h3>
+@if (IsSubmitted)
+{
+    @*Test Result Display*@
+    <div>
+        <label>
+            Hello user, thank you for taking test
+        </label>
+    </div>
+    <div>
+        <label>
+            You score is @UserScore/45;
+        </label>
 
-
-<div class="form-group">
-    <label>
-        @DisplayQuestion.Description
-    </label>
-</div>
-<div>
-    <InputRadioGroup Name="Options" @bind-Value="@DisplayQuestion.UserAnswer">
-
-        @foreach (var option in DisplayQuestion.Options)
+        @if(UserScore >= passScore)
         {
-            <div>
-                <label>
-                    <InputRadio Value="@option.Id" /> @option.Description
-                </label>
-            </div>
+            <label>
+                Congratulations! You've passed the test.
+            </label>
         }
-    </InputRadioGroup>
-</div>
-
-@if(index < totalCount - 1)
-{
-    <button class="btn btn-dark" @onclick="@Next">
-        Next Question
-    </button>
+        else
+        {
+            <label>
+                Unfortunately! You've failed the test.
+            </label>
+        }
+    </div>
 }
-
-@if(index == totalCount -1 )
+else
 {
-    <button class="btn btn-dark" @onclick="@SubmitTest">
-        Submit Test
-    </button>
-}
+     @*Question Display*@
+    <h3>Question</h3>
 
+
+    <div class="form-group">
+        <label>
+            @DisplayQuestion.Description
+        </label>
+    </div>
+    <div>
+        <InputRadioGroup Name="Options" @bind-Value="@DisplayQuestion.UserAnswer">
+
+            @foreach (var option in DisplayQuestion.Options)
+            {
+                <div>
+                    <label>
+                        <InputRadio Value="@option.Id" /> @option.Description
+                    </label>
+                </div>
+            }
+        </InputRadioGroup>
+    </div>
+
+    @if (index < totalCount - 1)
+    {
+        <button class="btn btn-dark" @onclick="@Next">
+            Next Question
+        </button>
+    }
+
+    @if (index == totalCount - 1)
+    {
+        <button class="btn btn-dark" @onclick="@SubmitTest">
+            Submit Test
+        </button>
+    }
+
+}
 @code {
     private Question DisplayQuestion; //current question to be displayed
     private List<Question> QArr; //all the questions being displayed
@@ -46,6 +77,7 @@
     private int totalCount = 0; // total items in the array, whats the last question in the array
     private int passScore = 41; 
     private int UserScore = 0;
+    private bool IsSubmitted = false; // flag to check if test is submitted.
     /// <summary>
     /// To Start off your page with initial Data
     /// </summary>
@@ -69,8 +101,6 @@
 
     public void SubmitTest()
     {
-        
-
         foreach (Question qAnswered in QArr)
         {
             if(qAnswered.CorrectAnswer == qAnswered.UserAnswer)
@@ -79,7 +109,7 @@
             }
         }
 
-
+        IsSubmitted = true;
     }
 }
 
