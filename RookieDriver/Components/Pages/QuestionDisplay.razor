@@ -32,11 +32,20 @@
     </button>
 }
 
+@if(index == totalCount -1 )
+{
+    <button class="btn btn-dark" @onclick="@SubmitTest">
+        Submit Test
+    </button>
+}
+
 @code {
-    private Question DisplayQuestion;
-    private List<Question> QArr;
-    private int index = 0;
-    private int totalCount = 0;
+    private Question DisplayQuestion; //current question to be displayed
+    private List<Question> QArr; //all the questions being displayed
+    private int index = 0; // position of the question in the list
+    private int totalCount = 0; // total items in the array, whats the last question in the array
+    private int passScore = 41; 
+    private int UserScore = 0;
     /// <summary>
     /// To Start off your page with initial Data
     /// </summary>
@@ -56,6 +65,21 @@
             index++;
             DisplayQuestion = QArr[index];
         }
+    }
+
+    public void SubmitTest()
+    {
+        
+
+        foreach (Question qAnswered in QArr)
+        {
+            if(qAnswered.CorrectAnswer == qAnswered.UserAnswer)
+            {
+                UserScore = UserScore + 1;
+            }
+        }
+
+
     }
 }
 

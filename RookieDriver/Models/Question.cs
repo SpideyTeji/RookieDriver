@@ -24,18 +24,18 @@
 
     public class User
     {
-        public string Description { get; set; }
+        public string Email { get; set; }
 
-        public int CorrectAnswer { get; set; }
+        public string Password { get; set; }
 
         public List<Test> ResultHistory { get; set; }
     }
 
     public class Test
     {
-        public string Description { get; set; }
+        public List<Question> QuestionList { get; set; }
 
-        public int CorrectAnswer { get; set; }
+        public int FinalScore { get; set; }
 
         public int UserId { get; set; }
     }
