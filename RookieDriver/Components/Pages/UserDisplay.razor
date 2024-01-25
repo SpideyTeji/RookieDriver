@@ -30,5 +30,11 @@
         Test test3 = new Test();
         test3.FinalScore = 45;
         test3.Username = user.Username;
+
+        user.ResultHistory = new List<Test>();
+
+        user.ResultHistory.Add(test1);
+        user.ResultHistory.Add(test2);
+        user.ResultHistory.Add(test3);
     }
 }
