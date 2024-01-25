@@ -1,0 +1,34 @@
+﻿@page "/user"
+@rendermode InteractiveServer
+
+<h3>UserDisplay</h3>
+
+
+
+
+@code {
+    private User user;
+
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+
+        user = new User();
+
+        user.Username = "Spidey";
+        user.Email = "spidey@spidey.com";
+        user.Password = "spidey123";
+
+        Test test1 = new Test();
+        test1.FinalScore = 30;
+        test1.Username = user.Username;
+
+        Test test2 = new Test();
+        test2.FinalScore = 35;
+        test2.Username = user.Username;
+
+        Test test3 = new Test();
+        test3.FinalScore = 45;
+        test3.Username = user.Username;
+    }
+}

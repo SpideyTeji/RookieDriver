@@ -26,6 +26,8 @@
     {
         public string Email { get; set; }
 
+        public string Username { get; set; }
+
         public string Password { get; set; }
 
         public List<Test> ResultHistory { get; set; }
@@ -37,6 +39,6 @@
 
         public int FinalScore { get; set; }
 
-        public int UserId { get; set; }
+        public string Username { get; set; }
     }
 }

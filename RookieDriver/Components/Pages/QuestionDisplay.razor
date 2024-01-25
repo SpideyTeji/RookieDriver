@@ -1,6 +1,4 @@
 ﻿@page "/question"
-@using RookieDriver.JSON
-@using RookieDriver.Models
 @rendermode InteractiveServer
 
 @if (IsSubmitted)
@@ -83,8 +81,13 @@ else
     /// </summary>
     protected override void OnInitialized()
     {
+        // Get me all available question
         JsonReader fileRead = new JsonReader();
         QArr = fileRead.ReadQuestions();
+
+        // Get me random 45 questions
+        // QuestionManager questionManager = new QuestionManager();
+        // QArr = questionManager.GiveMeTestQuestion();
 
         DisplayQuestion = QArr[index];
         totalCount = QArr.Count;
