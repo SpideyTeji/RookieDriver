@@ -8,6 +8,8 @@
 
         public int CorrectAnswer { get; set; }
 
+        public int UserAnswer { get; set; }
+
         public List<Option> Options { get; set; }
 
     }

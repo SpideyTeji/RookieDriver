@@ -13,31 +13,30 @@
 </div>
 <div>
     <InputRadioGroup Name="Options" @bind-Value="@DisplayQuestion.UserAnswer">
-        <div>
-            <label>
-                <InputRadio Value="@DisplayQuestion.OptionA" /> @DisplayQuestion.OptionA
-            </label>
-        </div>
-        <div>
-            <label>
-                <InputRadio Value="@DisplayQuestion.OptionB" /> @DisplayQuestion.OptionB
-            </label>
-        </div>
-        <div>
-            <label>
-                <InputRadio Value="@DisplayQuestion.OptionC" /> @DisplayQuestion.OptionC
-            </label>
-        </div>
+
+        @foreach (var option in DisplayQuestion.Options)
+        {
+            <div>
+                <label>
+                    <InputRadio Value="@option.Id" /> @option.Description
+                </label>
+            </div>
+        }
     </InputRadioGroup>
 </div>
-<button class="btn btn-dark" @onclick="@Next">
-    Next Question
-</button>
+
+@if(index < totalCount - 1)
+{
+    <button class="btn btn-dark" @onclick="@Next">
+        Next Question
+    </button>
+}
 
 @code {
     private Question DisplayQuestion;
     private List<Question> QArr;
     private int index = 0;
+    private int totalCount = 0;
     /// <summary>
     /// To Start off your page with initial Data
     /// </summary>
@@ -47,12 +46,16 @@
         QArr = fileRead.ReadQuestions();
 
         DisplayQuestion = QArr[index];
+        totalCount = QArr.Count;
     }
 
     public void Next()
     {
-        index++;
-        DisplayQuestion = QArr[index];
+        if(QArr[index].UserAnswer != 0)
+        {
+            index++;
+            DisplayQuestion = QArr[index];
+        }
     }
 }
 
