@@ -38,3 +38,26 @@
         user.ResultHistory.Add(test3);
     }
 }
+
+<div>
+    <label>
+        Hello @user.Username, Welcome to the practice test.
+
+        Would you like a tutorial of the app?
+
+    </label>
+</div>
+
+
+@foreach(Test test in user.ResultHistory)
+{
+    <div>
+        <label>
+            Your Score is: @test.FinalScore
+        </label>
+        <label>
+            Your Test Date is: @test.TestDate
+        </label>
+    </div>
+}
+

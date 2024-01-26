@@ -39,6 +39,8 @@
 
         public int FinalScore { get; set; }
 
+        public DateTime TestDate { get; set; }
+
         public string Username { get; set; }
     }
 }

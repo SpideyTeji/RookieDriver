@@ -41,7 +41,11 @@ else
     </div>
     <div>
         <InputRadioGroup Name="Options" @bind-Value="@DisplayQuestion.UserAnswer">
-
+            <div>
+                <label>
+                    <InputRadio Value="5" /> xyz
+                </label>
+            </div>
             @foreach (var option in DisplayQuestion.Options)
             {
                 <div>
