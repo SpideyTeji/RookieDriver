@@ -10,7 +10,7 @@ namespace RookieDriver.Manager
 
         public List<Question> GiveMeTestQuestion()
         {
-            JsonReader fileRead = new JsonReader(); // Read all question from QuestionBank.json.
+            JsonReadWrite fileRead = new JsonReadWrite(); // Read all question from QuestionBank.json.
 
             List<Question> allQuestions = fileRead.ReadQuestions(); // Store it in a variable.
 

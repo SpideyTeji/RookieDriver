@@ -56,8 +56,22 @@
 {
     <div>
         <label>
-            Your Score is: @test.FinalScore
+            Your Score is: @test.FinalScore/45
         </label>
+        <br />
+        @if(test.FinalScore >= 41)
+        {
+            <label>
+                You have passed! Congratulations
+            </label>
+        }
+        else
+        {
+            <label>
+                You have failed! Sorry
+            </label>
+        }
+        <br />
         <label>
             Your Test Date is: @test.TestDate
         </label>

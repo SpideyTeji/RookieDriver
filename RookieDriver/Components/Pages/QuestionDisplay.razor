@@ -86,7 +86,7 @@ else
     protected override void OnInitialized()
     {
         // Get me all available question
-        JsonReader fileRead = new JsonReader();
+        JsonReadWrite fileRead = new JsonReadWrite();
         QArr = fileRead.ReadQuestions();
 
         // Get me random 45 questions

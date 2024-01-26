@@ -1,4 +1,8 @@
-﻿namespace RookieDriver.Models
+﻿
+
+using Newtonsoft.Json;
+
+namespace RookieDriver.Models
 {
     public class Question
     {
@@ -35,6 +39,7 @@
 
     public class Test
     {
+        [JsonIgnore]
         public List<Question> QuestionList { get; set; }
 
         public int FinalScore { get; set; }
