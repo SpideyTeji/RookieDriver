@@ -7,27 +7,28 @@ namespace RookieDriver.JSON
 {
     public class JsonReadWrite
     {
-        public string Filepath = "C:\\Users\\tejis\\source\\repos\\RookieDriver\\RookieDriver\\Data\\QuestionBank.json";
+        public static string Filepath = "C:\\Users\\tejis\\source\\repos\\RookieDriver\\RookieDriver\\Data\\QuestionBank.json";
 
-        public string Userpath = "C:\\Users\\tejis\\source\\repos\\RookieDriver\\RookieDriver\\Data\\UserData.json";
+        public static string Userpath = "C:\\Users\\tejis\\source\\repos\\RookieDriver\\RookieDriver\\Data\\UserData.json";
 
-        public List<Question> ReadQuestions()
+        public static List<Question> ReadQuestions()
         {
-            var jsonString = File.ReadAllText(Filepath);
-            var questionFromJSON = JsonConvert.DeserializeObject<List<Question>>(jsonString);
+            string jsonString = File.ReadAllText(Filepath);
+            List<Question> questionFromJSON = JsonConvert.DeserializeObject<List<Question>>(jsonString);
             return questionFromJSON.ToList();
         }
 
-        public List<User> ReadUsers()
+        public static List<User> ReadUsers()
         {
-            var jsonString = File.ReadAllText(Userpath);
-            var userFromJSON = JsonConvert.DeserializeObject<List<User>>(jsonString);
+            string jsonString = File.ReadAllText(Userpath);
+            List<User> userFromJSON = JsonConvert.DeserializeObject<List<User>>(jsonString);
             return userFromJSON.ToList();
         }
 
-        public void WriteUsers(List<User> users)
+        public static void WriteUsers(List<User> users)
         {
-
+            string jsonString = JsonConvert.SerializeObject(users);
+            File.WriteAllText(Userpath, jsonString);
         }
     }
 }
