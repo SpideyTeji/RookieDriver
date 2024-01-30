@@ -5,12 +5,12 @@
     "CorrectAnswer": 1,
     "Options": [
       {
-        "Description": " No",
+        "Description": " No.",
         "Id": 1,
         "QuestionId": 1
       },
       {
-        "Description": " Yes; provided the provisional driver has held a P2 licence for more than 6 months",
+        "Description": " Yes; provided the provisional driver has held a P2 licence for more than 6 months.",
         "Id": 2,
         "QuestionId": 1
       },
@@ -27,17 +27,17 @@
     "CorrectAnswer": 1,
     "Options": [
       {
-        "Description": " 12 months",
+        "Description": " 12 months.",
         "Id": 1,
         "QuestionId": 2
       },
       {
-        "Description": " 18 months",
+        "Description": " 18 months.",
         "Id": 2,
         "QuestionId": 2
       },
       {
-        "Description": " 24 months",
+        "Description": " 24 months.",
         "Id": 3,
         "QuestionId": 2
       }
@@ -49,17 +49,17 @@
     "CorrectAnswer": 1,
     "Options": [
       {
-        "Description": " Slow down gradually and ease back onto the road",
+        "Description": " Slow down gradually and ease back onto the road.",
         "Id": 1,
         "QuestionId": 3
       },
       {
-        "Description": " Slow down quickly by braking hard",
+        "Description": " Slow down quickly by braking hard.",
         "Id": 2,
         "QuestionId": 3
       },
       {
-        "Description": " Increase your speed and drive back on the road",
+        "Description": " Increase your speed and drive back on the road.",
         "Id": 3,
         "QuestionId": 3
       }
@@ -71,17 +71,17 @@
     "CorrectAnswer": 1,
     "Options": [
       {
-        "Description": " Near to the left-hand side of the road",
+        "Description": " Near to the left-hand side of the road.",
         "Id": 1,
         "QuestionId": 4
       },
       {
-        "Description": " Anywhere on your side of the road",
+        "Description": " Anywhere on your side of the road.",
         "Id": 2,
         "QuestionId": 4
       },
       {
-        "Description": " Along the middle of the road",
+        "Description": " Along the middle of the road.",
         "Id": 3,
         "QuestionId": 4
       }
@@ -98,14 +98,124 @@
         "QuestionId": 5
       },
       {
-        "Description": "You must leave at least 2 metres from the front only.",
+        "Description": " You must leave at least 2 metres from the front only.",
         "Id": 2,
         "QuestionId": 5
       },
       {
-        "Description": "You must leave at least 3 metres front and back.",
+        "Description": " You must leave at least 3 metres front and back.",
         "Id": 3,
         "QuestionId": 5
+      }
+    ]
+  },
+  {
+    "Description": "Where there is parallel kerbside parking, are you allowed to double-park alongside a parked vehicle?",
+    "Id": 6,
+    "CorrectAnswer": 1,
+    "Options": [
+      {
+        "Description": " No, not at any time.",
+        "Id": 1,
+        "QuestionId": 6
+      },
+      {
+        "Description": " Yes, if delivering goods.",
+        "Id": 2,
+        "QuestionId": 6
+      },
+      {
+        "Description": " Yes, if not obstructing traffic.",
+        "Id": 3,
+        "QuestionId": 6
+      }
+    ]
+  },
+  {
+    "Description": "Do you have any responsibilities when opening a vehicle door on a roadway?",
+    "Id": 7,
+    "CorrectAnswer": 1,
+    "Options": [
+      {
+        "Description": " Yes, you must not open a door if you are likely to cause danger to road users or impede traffic.",
+        "Id": 1,
+        "QuestionId": 7
+      },
+      {
+        "Description": " No, any following traffic must stop if the door interferes with its progress.",
+        "Id": 2,
+        "QuestionId": 7
+      },
+      {
+        "Description": " No, there is no regulation to cover this situation.",
+        "Id": 3,
+        "QuestionId": 7
+      }
+    ]
+  },
+  {
+    "Description": "Are you permitted to park on a median strip or traffic island?",
+    "Id": 8,
+    "CorrectAnswer": 1,
+    "Options": [
+      {
+        "Description": " No, not at any time.",
+        "Id": 1,
+        "QuestionId": 8
+      },
+      {
+        "Description": " Yes, in daylight hours.",
+        "Id": 2,
+        "QuestionId": 8
+      },
+      {
+        "Description": " Yes, but for no more than 30 minutes.",
+        "Id": 3,
+        "QuestionId": 8
+      }
+    ]
+  },
+  {
+    "Description": "When driving at sunset or dawn on a dark day, what should you do?",
+    "Id": 9,
+    "CorrectAnswer": 1,
+    "Options": [
+      {
+        "Description": " Turn on your lights on low beam.",
+        "Id": 1,
+        "QuestionId": 9
+      },
+      {
+        "Description": " Keep your sunglasses on to cut down headlight glare.",
+        "Id": 2,
+        "QuestionId": 9
+      },
+      {
+        "Description": " Turn on your hazard warning lights.",
+        "Id": 3,
+        "QuestionId": 9
+      }
+    ]
+  },
+  {
+    "Description": "You are driving at night with your headlights on high beam. When should you dip your headlights?",
+    "Id": 10,
+    "CorrectAnswer": 1,
+    "Options": [
+      {
+        "Description": " When within 200 metres of the vehicle ahead or an oncoming one.",
+        "Id": 1,
+        "QuestionId": 10
+      },
+      {
+        "Description": " When within 200 metres of an oncoming vehicle only.",
+        "Id": 2,
+        "QuestionId": 10
+      },
+      {
+        "Description": " Never, you are allowed to drive with your lights on high beam at all times.",
+        "Id": 3,
+        "QuestionId": 10
       }
     ]
   }
