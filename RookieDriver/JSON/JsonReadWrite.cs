@@ -8,12 +8,12 @@ namespace RookieDriver.JSON
 {
     public class JsonReadWrite
     {
-        public static string Filepath = "C:\\Users\\tejis\\source\\repos\\RookieDriver\\RookieDriver\\Data\\QuestionBank.json";
+        public static string Filepath = $"{Directory.GetCurrentDirectory()}\\Data\\QuestionBank.json";
 
-        public static string Userpath = "C:\\Users\\tejis\\source\\repos\\RookieDriver\\RookieDriver\\Data\\UserData.json";
+        public static string Userpath = $"{Directory.GetCurrentDirectory()}\\Data\\UserData.json";
 
         public static List<Question> ReadQuestions()
-        {
+        { 
             string jsonString = File.ReadAllText(Filepath);
             List<Question> questionFromJSON = JsonConvert.DeserializeObject<List<Question>>(jsonString);
             return questionFromJSON.ToList();
