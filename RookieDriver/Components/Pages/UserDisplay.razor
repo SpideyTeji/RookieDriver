@@ -41,25 +41,44 @@
 }
 else @*Is User failed to login*@
 {
-    <EditForm Model="@model" OnValidSubmit="@ValidateLogin" >
-        <DataAnnotationsValidator />
-        <ValidationSummary />
-        <MudGrid>
-             <MudItem xs="12" sm="7">
-                 <MudCard>
-                     <MudCardContent>
-                        <MudTextField Label="Username" HelperText="Enter your username"
-                                      @bind-Value="@model.Username" For="@(() => model.Username)" />
-                        <MudTextField Label="Password" HelperText="Enter your password" Class="mt-3"
-                                      @bind-Value="@model.Password" For="@(() => model.Password)" InputType="InputType.Password" />
-                     </MudCardContent>
-                    <MudCardActions>
-                        <MudButton ButtonType="ButtonType.Submit" Variant="Variant.Filled" Color="Color.Primary" Class="ml-auto">Submit</MudButton>
-                    </MudCardActions>
-                 </MudCard>
-             </MudItem>
-        </MudGrid>
-    </EditForm>
+    @if (IsNewUser)
+    {
+        @*Registation For new user*@
+        
+    }
+    else
+    {
+        <EditForm Model="@model" OnValidSubmit="@ValidateLogin">
+            <DataAnnotationsValidator />
+            <ValidationSummary />
+            <MudGrid>
+                <MudItem xs="12" sm="7">
+                    <MudCard>
+                        <MudCardContent>
+                            <MudTextField Label="Username" HelperText="Enter your username"
+                                          @bind-Value="@model.Username" For="@(() => model.Username)" />
+                            <MudTextField Label="Password" HelperText="Enter your password" Class="mt-3"
+                                          @bind-Value="@model.Password" For="@(() => model.Password)" InputType="InputType.Password" />
+                        </MudCardContent>
+                        <MudCardActions>
+                            <MudButton ButtonType="ButtonType.Submit" Variant="Variant.Filled" Color="Color.Primary" Class="ml-auto">Submit</MudButton>
+                        </MudCardActions>
+                    </MudCard>
+                </MudItem>
+                <MudItem xs="12" sm="7">
+                    <MudText Typo="Typo.body2" Align="Align.Center">
+                        New her please, Register
+                    </MudText>
+                </MudItem>
+                <MudItem xs="12" sm="5">
+                    <MudText Typo="Typo.body2" Align="Align.Center">
+                        <MudButton ButtonType="ButtonType.Button" Variant="Variant.Filled" OnClick="@ShowRegisterUser"
+                                   Color="Color.Primary" Class="ml-auto">New User</MudButton>
+                    </MudText>
+                </MudItem>
+            </MudGrid>
+        </EditForm>
+    }    
 }
 
 
@@ -91,6 +110,11 @@ else @*Is User failed to login*@
         }
         StateHasChanged();
 
+    }
+
+    private void ShowRegisterUser()
+    {
+        IsNewUser = true;
     }
 
     public class LoginModel
