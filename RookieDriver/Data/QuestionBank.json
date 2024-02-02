@@ -328,5 +328,379 @@
         "QuestionId": 15
       }
     ]
+  },
+  {
+    "Description": "What must you do when you are towing a caravan to help other vehicles overtake?",
+    "Id": 16,
+    "CorrectAnswer": 1,
+    "Options": [
+      {
+        "Description": " Keep at least 60 metres behind heavy vehicles or other vehicles towing caravans.",
+        "Id": 1,
+        "QuestionId": 16
+      },
+      {
+        "Description": " Drive at least 25 km/h below the speed limit.",
+        "Id": 2,
+        "QuestionId": 16
+      },
+      {
+        "Description": " Stop immediately and let the faster vehicle overtake.",
+        "Id": 3,
+        "QuestionId": 16
+      }
+    ]
+  },
+  {
+    "Description": "Are you permitted to tow a caravan with a person riding in the caravan?",
+    "Id": 17,
+    "CorrectAnswer": 1,
+    "Options": [
+      {
+        "Description": " No, not under any circumstances.",
+        "Id": 1,
+        "QuestionId": 17
+      },
+      {
+        "Description": " Yes, provided you do not exceed 60 km/h.",
+        "Id": 2,
+        "QuestionId": 17
+      },
+      {
+        "Description": " Yes, if the person(s) in the caravan are over 12 years of age.",
+        "Id": 3,
+        "QuestionId": 17
+      }
+    ]
+  },
+  {
+    "Description": "Before driving a long distance at fast speed or carrying a full car load, you should-",
+    "Id": 18,
+    "CorrectAnswer": 1,
+    "Options": [
+      {
+        "Description": " Check your tyre pressure, and if necessary, increase it to what the manufacturer recommends.",
+        "Id": 1,
+        "QuestionId": 18
+      },
+      {
+        "Description": " Make sure you have a street directory, so you know where you are going.",
+        "Id": 2,
+        "QuestionId": 18
+      },
+      {
+        "Description": " Have a large meal and a cup of coffee.",
+        "Id": 3,
+        "QuestionId": 18
+      }
+    ]
+  },
+  {
+    "Description": "If an oncoming vehicle crosses the centre line and is coming straight at you and you cannot stop, you should -",
+    "Id": 19,
+    "CorrectAnswer": 1,
+    "Options": [
+      {
+        "Description": " Brake, look for room to the left, sound your horn and flash your lights.",
+        "Id": 1,
+        "QuestionId": 19
+      },
+      {
+        "Description": " Slow down and hope that the driver will turn away.",
+        "Id": 2,
+        "QuestionId": 19
+      },
+      {
+        "Description": " Drive onto the wrong side of the road and hope the other vehicle does not do the same.",
+        "Id": 3,
+        "QuestionId": 19
+      }
+    ]
+  },
+  {
+    "Description": "If you are involved in an accident where your vehicle needs to be towed away and the Police does not attend the crash scene, you -",
+    "Id": 20,
+    "CorrectAnswer": 1,
+    "Options": [
+      {
+        "Description": " Must report the accident to the Police Station nearest to where the accident happened within 24 hours.",
+        "Id": 1,
+        "QuestionId": 20
+      },
+      {
+        "Description": " Do not need to report the accident to the Police.",
+        "Id": 2,
+        "QuestionId": 20
+      },
+      {
+        "Description": " Only need to report the accident to the Police if someone was injured.",
+        "Id": 3,
+        "QuestionId": 20
+      }
+    ]
+  },
+  {
+    "Description": "Stop signs or flashing lights at railway crossings should always be obeyed, because -",
+    "Id": 21,
+    "CorrectAnswer": 1,
+    "Options": [
+      {
+        "Description": " Trains are fast, heavy and cannot stop quickly.",
+        "Id": 1,
+        "QuestionId": 21
+      },
+      {
+        "Description": " Pedestrians might be crossing.",
+        "Id": 2,
+        "QuestionId": 21
+      },
+      {
+        "Description": " Car brakes often fail.",
+        "Id": 3,
+        "QuestionId": 21
+      }
+    ]
+  },
+  {
+    "Description": "You should not drive across a railway level crossing when -",
+    "Id": 22,
+    "CorrectAnswer": 1,
+    "Options": [
+      {
+        "Description": " Traffic is blocking the other side.",
+        "Id": 1,
+        "QuestionId": 22
+      },
+      {
+        "Description": " You are towing a caravan.",
+        "Id": 2,
+        "QuestionId": 22
+      },
+      {
+        "Description": " A station is nearby.",
+        "Id": 3,
+        "QuestionId": 22
+      }
+    ]
+  },
+  {
+    "Description": "You should use your right-hand indicator when -",
+    "Id": 23,
+    "CorrectAnswer": 1,
+    "Options": [
+      {
+        "Description": " You intend to move to the right, at any time.",
+        "Id": 1,
+        "QuestionId": 23
+      },
+      {
+        "Description": " You intend to slow down.",
+        "Id": 2,
+        "QuestionId": 23
+      },
+      {
+        "Description": " You are about to stop.",
+        "Id": 3,
+        "QuestionId": 23
+      }
+    ]
+  },
+  {
+    "Description": "When merging onto the freeway from the entrance, you should-",
+    "Id": 24,
+    "CorrectAnswer": 1,
+    "Options": [
+      {
+        "Description": " Look for a large enough break in the traffic and adjust your speed so as to fit into the traffic flow.",
+        "Id": 1,
+        "QuestionId": 24
+      },
+      {
+        "Description": " Sound your horn, turn on your indicator lights and move onto the freeway.",
+        "Id": 2,
+        "QuestionId": 24
+      },
+      {
+        "Description": " Stop and check the traffic behind you on the entrance.",
+        "Id": 3,
+        "QuestionId": 24
+      }
+    ]
+  },
+  {
+    "Description": "If you see a sign indicating road repairs are going on, you should -",
+    "Id": 25,
+    "CorrectAnswer": 1,
+    "Options": [
+      {
+        "Description": " Slow down and watch for traffic controllers and instructions.",
+        "Id": 1,
+        "QuestionId": 25
+      },
+      {
+        "Description": " Stop immediately and wait for instructions.",
+        "Id": 2,
+        "QuestionId": 25
+      },
+      {
+        "Description": "  Maintain the same speed.",
+        "Id": 3,
+        "QuestionId": 25
+      }
+    ]
+  },
+  {
+    "Description": "You see a broken yellow line painted on the roadway adjacent to the kerb. What does it mean?",
+    "Id": 26,
+    "CorrectAnswer": 1,
+    "Options": [
+      {
+        "Description": " Clearway restrictions apply - you must not stop during the clearway hours.",
+        "Id": 1,
+        "QuestionId": 26
+      },
+      {
+        "Description": " You may at any time, park along this part of the road for 1 hour only.",
+        "Id": 2,
+        "QuestionId": 26
+      },
+      {
+        "Description": " Bicycle riders must ride along the yellow line.",
+        "Id": 3,
+        "QuestionId": 26
+      }
+    ]
+  },
+  {
+    "Description": "If you see a horse and rider on the road what should you do?",
+    "Id": 27,
+    "CorrectAnswer": 1,
+    "Options": [
+      {
+        "Description": " Slow down and give them plenty of room.",
+        "Id": 1,
+        "QuestionId": 27
+      },
+      {
+        "Description": " Sound your horn to warn the rider.",
+        "Id": 2,
+        "QuestionId": 27
+      },
+      {
+        "Description": " Speed up to pass the horse.",
+        "Id": 3,
+        "QuestionId": 27
+      }
+    ]
+  },
+  {
+    "Description": "A friend lends you a van that has seats for ten passengers. What type of licence do you need to drive this type of vehicle?",
+    "Id": 28,
+    "CorrectAnswer": 1,
+    "Options": [
+      {
+        "Description": " A car licence.",
+        "Id": 1,
+        "QuestionId": 28
+      },
+      {
+        "Description": " A heavy rigid vehicle licence.",
+        "Id": 2,
+        "QuestionId": 28
+      },
+      {
+        "Description": " A small bus licence.",
+        "Id": 3,
+        "QuestionId": 28
+      }
+    ]
+  },
+  {
+    "Description": "What are you required to do if you develop a serious medical condition that could affect your driving?",
+    "Id": 29,
+    "CorrectAnswer": 1,
+    "Options": [
+      {
+        "Description": " Once you become aware of the condition you must notify the RTA.",
+        "Id": 1,
+        "QuestionId": 29
+      },
+      {
+        "Description": " Hand your licence in at the nearest police station.",
+        "Id": 2,
+        "QuestionId": 29
+      },
+      {
+        "Description": " Tell your doctor and let him or her notify the RTA.",
+        "Id": 3,
+        "QuestionId": 29
+      }
+    ]
+  },
+  {
+    "Description": "A friend lends you his car. It is very noisy and blows a lot of smoke. He tells you the vehicle has been given a defect notice but it's still OK to drive it. What should you do?",
+    "Id": 30,
+    "CorrectAnswer": 1,
+    "Options": [
+      {
+        "Description": " Before you borrow the car check the defect notice to make sure it is legal to drive the car.",
+        "Id": 1,
+        "QuestionId": 30
+      },
+      {
+        "Description": " Borrow the car, but always drive it 10 Km/h below the speed limit.",
+        "Id": 2,
+        "QuestionId": 30
+      },
+      {
+        "Description": " Borrow the car but only drive on streets where the car will not be a danger to others.",
+        "Id": 3,
+        "QuestionId": 30
+      }
+    ]
+  },
+  {
+    "Description": "Your car registration expires today. You have your car inspected for registration renewal but it fails the inspection. What should you do?",
+    "Id": 31,
+    "CorrectAnswer": 1,
+    "Options": [
+      {
+        "Description": " After today you must not drive the car until it has been repaired, passed another inspection and registered.",
+        "Id": 1,
+        "QuestionId": 31
+      },
+      {
+        "Description": " You have seven days to have the car repaired, after which the RTA considers it to be unregistered.",
+        "Id": 2,
+        "QuestionId": 31
+      },
+      {
+        "Description": " Go to the RTA and ask them to renew your registration and tell them you will soon get the car fixed.",
+        "Id": 3,
+        "QuestionId": 31
+      }
+    ]
+  },
+  {
+    "Description": "You buy a car and find that the spare tyre is smooth; the tread is only just visible. If you get a puncture will it be legal to drive the car with a smooth spare tyre?",
+    "Id": 32,
+    "CorrectAnswer": 1,
+    "Options": [
+      {
+        "Description": " No, it's illegal to drive a car with a smooth tyre even if it is the spare.",
+        "Id": 1,
+        "QuestionId": 32
+      },
+      {
+        "Description": " Yes, but you must get the puncture fixed within 24 hours.",
+        "Id": 2,
+        "QuestionId": 32
+      },
+      {
+        "Description": " Yes, if the tyre is correctly inflated and the side walls of the tyre are in good condition.",
+        "Id": 3,
+        "QuestionId": 32
+      }
+    ]
   }
 ]
