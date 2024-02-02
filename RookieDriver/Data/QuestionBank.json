@@ -218,5 +218,115 @@
         "QuestionId": 10
       }
     ]
+  },
+  {
+    "Description": "Is it an offence to obstruct clear vision of your number plates?",
+    "Id": 11,
+    "CorrectAnswer": 1,
+    "Options": [
+      {
+        "Description": " Yes, at any time.",
+        "Id": 1,
+        "QuestionId": 11
+      },
+      {
+        "Description": " Yes, but it is legal for a towbar or bicycle rack to cover the rear number plate.",
+        "Id": 2,
+        "QuestionId": 11
+      },
+      {
+        "Description": " No, you are allowed to cover your number plates if you want to.",
+        "Id": 3,
+        "QuestionId": 11
+      }
+    ]
+  },
+  {
+    "Description": "Before driving on a freeway, which of the following should you do?",
+    "Id": 12,
+    "CorrectAnswer": 1,
+    "Options": [
+      {
+        "Description": " Make sure your vehicle has enough fuel, oil, water and the correct tyre pressure.",
+        "Id": 1,
+        "QuestionId": 12
+      },
+      {
+        "Description": " Take your street directory in case you get lost.",
+        "Id": 2,
+        "QuestionId": 12
+      },
+      {
+        "Description": " Take something to calm your nerves before driving.",
+        "Id": 3,
+        "QuestionId": 12
+      }
+    ]
+  },
+  {
+    "Description": "What must you do if you miss your exit on a freeway?",
+    "Id": 13,
+    "CorrectAnswer": 1,
+    "Options": [
+      {
+        "Description": " Continue until you reach the next appropriate exit.",
+        "Id": 1,
+        "QuestionId": 13
+      },
+      {
+        "Description": " Stop, and reverse back along the freeway to the exit you missed.",
+        "Id": 2,
+        "QuestionId": 13
+      },
+      {
+        "Description": " Stop immediately and turn around.",
+        "Id": 3,
+        "QuestionId": 13
+      }
+    ]
+  },
+  {
+    "Description": "As you leave a freeway, which of the following should you check?",
+    "Id": 14,
+    "CorrectAnswer": 1,
+    "Options": [
+      {
+        "Description": " Your speed.",
+        "Id": 1,
+        "QuestionId": 14
+      },
+      {
+        "Description": " Fuel gauge.",
+        "Id": 2,
+        "QuestionId": 14
+      },
+      {
+        "Description": " Windscreen wipers.",
+        "Id": 3,
+        "QuestionId": 14
+      }
+    ]
+  },
+  {
+    "Description": "Are you permitted to drive a car towing more than one trailer?",
+    "Id": 15,
+    "CorrectAnswer": 1,
+    "Options": [
+      {
+        "Description": " No, not at all.",
+        "Id": 1,
+        "QuestionId": 15
+      },
+      {
+        "Description": " Yes, if the combined length of vehicle and trailers does not exceed 15 metres.",
+        "Id": 2,
+        "QuestionId": 15
+      },
+      {
+        "Description": " Yes, provided you have held a licence for two years.",
+        "Id": 3,
+        "QuestionId": 15
+      }
+    ]
   }
 ]
