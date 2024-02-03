@@ -39,13 +39,14 @@ namespace RookieDriver.Manager
 
                 if (positionList.Contains(position)) // Check if the position is unique
                 {
+                    i--;
                     continue; // Is found you continue;
                 }
 
                 var randomQuestion = AllQuestionList[position]; // Get the Question from the position
 
-                randomQuestion.Options.OrderBy(x => random.Next()); // Shuffle the options
-
+                randomQuestion.Options = randomQuestion.Options.OrderBy(x => random.Next()).ToList(); // Shuffle the options
+                
                 positionList.Add(position); // Add to known positions
                 questionList.Add(randomQuestion); // Add question to be retuned
             }
