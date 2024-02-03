@@ -56,13 +56,13 @@ else
                 </MudCardHeader>
                 @if (!string.IsNullOrEmpty(DisplayQuestion.ImagePath))
                 {
-                    <MudCardMedia Height="100" Image="@($"img/{DisplayQuestion.ImagePath}")"/>    
+                    <MudCardMedia Image="@($"./img/{DisplayQuestion.ImagePath}")"/>    
                 }
                 <MudCardContent>
                     <MudGrid>
                         <MudItem md="4">
                             <MudRadioGroup Name="Options" @bind-Value="@DisplayQuestion.UserAnswer">
-                                @foreach (var option in DisplayQuestion.Options)
+                                @foreach (var option in DisplayQuestion.Options.OrderBy(x => Random.Shared.Next()).ToList())
                                 {
                                     <MudRadio Value="@option.Id">@option.Description</MudRadio>
                                 }
