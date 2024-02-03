@@ -17,7 +17,7 @@ namespace RookieDriver.Manager
         public QuestionManager() 
         {
             questionList = JsonReadWrite.ReadQuestions(); // Read all question from QuestionBank.json. && Store it in a variable.
-            NO_OF_QUESTION_FOR_TEST = questionList.Count;
+            NO_OF_QUESTION_FOR_TEST = questionList.Count - 20;
             PassScore = (int)Math.Round(0.9*NO_OF_QUESTION_FOR_TEST, MidpointRounding.AwayFromZero);
         }
 

@@ -112,8 +112,8 @@ else
         CurrentTest.TestDate = DateTime.Now.Date;
         CurrentTest.Username = username;
 
-        //CurrentTest.QuestionList = _QManager.GiveRandomQuestions();
-        CurrentTest.QuestionList = _QManager.GiveAllQuestions();
+        CurrentTest.QuestionList = _QManager.GiveRandomQuestions();
+        //CurrentTest.QuestionList = _QManager.GiveAllQuestions();
 
         DisplayQuestion = CurrentTest.QuestionList[index];
     }
