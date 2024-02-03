@@ -3,6 +3,7 @@
     "Description": "Can a P1 or P2 provisional driver legally instruct a learner driver?",
     "Id": 1,
     "CorrectAnswer": 1,
+    "ImagePath" : "q12.bmp",
     "Options": [
       {
         "Description": " No.",

@@ -1,7 +1,123 @@
 ﻿@page "/"
+@using System.ComponentModel.DataAnnotations
+@inject NavigationManager navigationManager
 
-<PageTitle>Home</PageTitle>
+<PageTitle>DKT practice</PageTitle>
 
-<h1>Hello, world!</h1>
+<MudPaper Class="pa-8 align-start d-flex" Width="100%" Outlined="false">
+    <MudSpacer/>
+    <MudContainer MaxWidth="MaxWidth.ExtraExtraLarge">
+    @if (IsNewUser)
+    {
+        @*Registation For new user*@
+            <EditForm Model="@usermodel" OnValidSubmit="@CreateUser">
+                <DataAnnotationsValidator />
+                <ValidationSummary />
+                <MudGrid>
+                    <MudItem xs="12" sm="7">
+                        <MudCard>
+                            <MudCardContent>
+                                <MudTextField Label="Email" HelperText="Enter your email" Class="mt-3"
+                                              @bind-Value="@usermodel.Password" For="@(() => usermodel.Password)" InputType="InputType.Email" />
+                                <MudTextField Label="Username" HelperText="Enter your username"
+                                              @bind-Value="@usermodel.Username" For="@(() => usermodel.Username)" />
+                                <MudTextField Label="Password" HelperText="Enter your password" Class="mt-3"
+                                              @bind-Value="@usermodel.Password" For="@(() => usermodel.Password)" />
+                                <MudTextField Label="Confirm Password" HelperText="Enter your password" Class="mt-3"
+                                              @bind-Value="@usermodel.ConfirmPassword" For="@(() => usermodel.ConfirmPassword)" />
+                            </MudCardContent>
+                            <MudCardActions>
+                                <MudButton ButtonType="ButtonType.Submit" Variant="Variant.Filled" Color="Color.Primary" Class="ml-auto">Create</MudButton>
+                            </MudCardActions>
+                        </MudCard>
+                    </MudItem>
+                </MudGrid>
+            </EditForm>
+    }
+    else
+    {
+        <EditForm Model="@model" OnValidSubmit="@ValidateLogin">
+            <DataAnnotationsValidator />
+            <ValidationSummary />
+            <MudGrid>
+                <MudItem xs="12" sm="7">
+                    <MudCard>
+                        <MudCardContent>
+                            <MudTextField Label="Username" HelperText="Enter your username"
+                                      @bind-Value="@model.Username" For="@(() => model.Username)" />
+                            <MudTextField Label="Password" HelperText="Enter your password" Class="mt-3"
+                                      @bind-Value="@model.Password" For="@(() => model.Password)" InputType="InputType.Password" />
+                        </MudCardContent>
+                        <MudCardActions>
+                            <MudButton ButtonType="ButtonType.Submit" Variant="Variant.Filled" Color="Color.Primary" Class="ml-auto">Submit</MudButton>
+                            <MudButton ButtonType="ButtonType.Button" Variant="Variant.Filled" OnClick="@ShowRegisterUser"
+                                   Color="Color.Primary" Class="ml-auto">New User</MudButton>
+                        </MudCardActions>
+                    </MudCard>
+                </MudItem>
+            </MudGrid>
+        </EditForm>
+    }    
+    </MudContainer>
+</MudPaper>
 
-Welcome to your new app.
+@code{
+
+    private LoginModel model = new LoginModel();
+    private NewUser usermodel = new NewUser();
+
+    private UserManager userManager;
+    private bool IsNewUser;
+
+    protected override void OnInitialized()
+    {
+        userManager = new UserManager();
+    }
+
+    private void ValidateLogin(EditContext context)
+    {
+        bool isLoggedIn = userManager.UserLogin(model.Username, model.Password);
+
+        if (isLoggedIn == true)
+        {
+            navigationManager.NavigateTo($"/user/{model.Username}", forceLoad: true);
+        }
+    }
+
+    private void CreateUser()
+    {
+        var newuser = userManager.NewUser(usermodel.Email, usermodel.Username, usermodel.Password);
+        IsNewUser = false;
+    }
+
+    private void ShowRegisterUser()
+    {
+        IsNewUser = true;
+    }
+
+    public class LoginModel
+    {
+        [Required]
+        public string Password { get; set; }
+
+        [Required]
+        public string Username { get; set; }
+    }
+
+    public class NewUser
+    {
+        [Required]
+        [EmailAddress]
+        public string Email { get; set; }
+
+        [Required]
+        public string Username { get; set; }
+
+        [Required]
+        public string Password { get; set; }
+
+        [Required]
+        public string ConfirmPassword { get; set; }
+
+    }
+}

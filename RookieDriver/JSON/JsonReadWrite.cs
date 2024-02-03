@@ -32,7 +32,13 @@ namespace RookieDriver.JSON
 
         public static void WriteUsers(List<User> users)
         {
-            string jsonString = JsonConvert.SerializeObject(users);
+            var settings = new JsonSerializerSettings
+            {
+                Formatting = Formatting.Indented,
+                DateFormatString = "dd/MM/yyyy"
+            };
+
+            string jsonString = JsonConvert.SerializeObject(users, settings);
             File.WriteAllText(Userpath, jsonString);
         }
     }

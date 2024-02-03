@@ -60,5 +60,22 @@ public class UserManager
         return null;
     }
 
+    public User NewUser(string email, string username,string password) 
+    {
+        var newUser = new User(email, username,password);
+        users.Add(newUser);
+
+        JsonReadWrite.WriteUsers(users);
+
+        return newUser;
+    }
+
     // User save test result
+    public void SaveTest(Test testResult)
+    {
+        var user = GetUser(testResult.Username);
+        user.ResultHistory.Add(testResult);
+
+        JsonReadWrite.WriteUsers(users);
+    }
 }

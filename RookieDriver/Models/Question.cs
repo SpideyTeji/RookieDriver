@@ -16,6 +16,7 @@ namespace RookieDriver.Models
 
         public List<Option> Options { get; set; }
 
+        public string ImagePath { get; set; }
     }
 
     public class Option
@@ -50,6 +51,10 @@ namespace RookieDriver.Models
         public List<Question> QuestionList { get; set; }
 
         public int FinalScore { get; set; }
+
+        public int TotalScore { get; set; }
+
+        public int PassScore { get; set; }
 
         public DateTime TestDate { get; set; }
 
