@@ -1,117 +1,148 @@
-﻿@page "/question"
+﻿@page "/question/{username}"
 @rendermode InteractiveServer
+@inject NavigationManager navigationManager
 
 @if (IsSubmitted)
 {
-    @*Test Result Display*@
-    <div>
-        <label>
-            Hello user, thank you for taking test
-        </label>
-    </div>
-    <div>
-        <label>
-            You score is @UserScore/45;
-        </label>
+    <MudGrid>
+        <MudItem>
+            <MudCard>
+                <MudCardHeader>
+                    <MudChip Size="Size.Large" Label="true" Color="Color.Info">
+                        <AvatarContent>
+                            <MudAvatar>@(username.Take(2))</MudAvatar>
+                        </AvatarContent>
+                        <ChildContent>Hello @username, Thank you for taking the test</ChildContent>
+                    </MudChip>
+                </MudCardHeader>
+               @*  @if (UserScore >= @CurrentTest.PassScore)
+                {
+                    <MudCardMedia />
+                }
+                else
+                {
+                    <MudCardMedia>
 
-        @if(UserScore >= passScore)
-        {
-            <label>
-                Congratulations! You've passed the test.
-            </label>
-        }
-        else
-        {
-            <label>
-                Unfortunately! You've failed the test.
-            </label>
-        }
-    </div>
+                    </MudCardMedia>
+                } *@
+                <MudCardContent>
+                    <MudText>You score is @UserScore/@CurrentTest.TotalScore</MudText>
+                    @if (UserScore >= @CurrentTest.PassScore)
+                    {
+                        <MudText>Congratulations! You've passed the test.</MudText>
+                    }
+                    else
+                    {
+                        <MudText>Unfortunately! You've failed the test.</MudText>
+                    }
+                </MudCardContent>
+                <MudCardActions>
+                    <MudButton Variant="Variant.Text" Color="Color.Primary" OnClick="@FinishTest">Finish Test</MudButton>
+                </MudCardActions>
+            </MudCard>
+        </MudItem>
+    </MudGrid>
 }
 else
 {
-     @*Question Display*@
-    <h3>Question</h3>
-
-
-    <div class="form-group">
-        <label>
-            @DisplayQuestion.Description
-        </label>
-    </div>
-    <div>
-        <InputRadioGroup Name="Options" @bind-Value="@DisplayQuestion.UserAnswer">
-            @foreach (var option in DisplayQuestion.Options)
-            {
-                <div>
-                    <label>
-                        <InputRadio Value="@option.Id" /> @option.Description
-                    </label>
-                </div>
-            }
-        </InputRadioGroup>
-    </div>
-
-    @if (index < totalCount - 1)
-    {
-        <button class="btn btn-dark" @onclick="@Next">
-            Next Question
-        </button>
-    }
-
-    @if (index == totalCount - 1)
-    {
-        <button class="btn btn-dark" @onclick="@SubmitTest">
-            Submit Test
-        </button>
-    }
-
+    <MudGrid>
+        <MudItem>
+            <MudCard>
+                <MudCardHeader>
+                    <CardHeaderContent>
+                        <MudText>Question @(index + 1) </MudText>
+                        <MudText>@DisplayQuestion.Description</MudText>
+                    </CardHeaderContent>
+                </MudCardHeader>
+                @if (!string.IsNullOrEmpty(DisplayQuestion.ImagePath))
+                {
+                    <MudCardMedia Height="100" Image="@($"img/{DisplayQuestion.ImagePath}")"/>    
+                }
+                <MudCardContent>
+                    <MudGrid>
+                        <MudItem md="4">
+                            <MudRadioGroup Name="Options" @bind-Value="@DisplayQuestion.UserAnswer">
+                                @foreach (var option in DisplayQuestion.Options)
+                                {
+                                    <MudRadio Value="@option.Id">@option.Description</MudRadio>
+                                }
+                            </MudRadioGroup>
+                        </MudItem>
+                    </MudGrid>
+                </MudCardContent>
+                <MudCardActions>
+                    @if (index < CurrentTest.TotalScore - 1)
+                    {
+                        <MudButton Variant="Variant.Text" Color="Color.Primary" OnClick="@Next">Next Question</MudButton>
+                    }
+                    else if (index == CurrentTest.TotalScore - 1)
+                    {
+                        <MudButton Variant="Variant.Text" Color="Color.Primary" OnClick="@SubmitTest">Finish Test</MudButton>
+                    }
+                </MudCardActions>
+            </MudCard>
+        </MudItem>
+    </MudGrid>
 }
 @code {
     ///  <summary>
     ///  This is my change
     /// </summary>
     private Question DisplayQuestion; //current question to be displayed
-    private List<Question> QArr; //all the questions being displayed
     private int index = 0; // position of the question in the list
-    private int totalCount = 0; // total items in the array, whats the last question in the array
-    private int passScore = 9; 
     private int UserScore = 0;
     private bool IsSubmitted = false; // flag to check if test is submitted.
+    private Test CurrentTest = new Test();
+
+    [Parameter]
+    public string username { get; set; }
+
+    private QuestionManager _QManager = new QuestionManager();
+    private UserManager _UManager = new UserManager();
+
     /// <summary>
     /// To Start off your page with initial Data
     /// </summary>
     protected override void OnInitialized()
     {
-        // Get me all available question
-        QArr = JsonReadWrite.ReadQuestions();
+        CurrentTest.TotalScore = _QManager.TotalQuestionCount();
+        CurrentTest.PassScore = _QManager.PassScoreCount();
+        CurrentTest.TestDate = DateTime.Now.Date;
+        CurrentTest.Username = username;
 
-        // Get me random 45 questions
-        // QuestionManager questionManager = new QuestionManager();
-        // QArr = questionManager.GiveMeTestQuestion();
+        //CurrentTest.QuestionList = _QManager.GiveRandomQuestions();
+        CurrentTest.QuestionList = _QManager.GiveAllQuestions();
 
-        DisplayQuestion = QArr[index];
-        totalCount = QArr.Count;
+        DisplayQuestion = CurrentTest.QuestionList[index];
     }
 
     public void Next()
     {
-        if(QArr[index].UserAnswer != 0)
+        if (CurrentTest.QuestionList[index].UserAnswer != 0)
         {
             index++;
-            DisplayQuestion = QArr[index];
+            DisplayQuestion = CurrentTest.QuestionList[index];
         }
+    }
+
+    public void FinishTest()
+    {
+        navigationManager.NavigateTo($"/{username}", forceLoad: true);
     }
 
     public void SubmitTest()
     {
-        foreach (Question qAnswered in QArr)
+        foreach (Question qAnswered in CurrentTest.QuestionList)
         {
             if(qAnswered.CorrectAnswer == qAnswered.UserAnswer)
             {
                 UserScore = UserScore + 1;
             }
         }
+
+        CurrentTest.FinalScore = UserScore;
+
+        _UManager.SaveTest(CurrentTest);
 
         IsSubmitted = true;
     }

@@ -1,129 +1,67 @@
-﻿@page "/user"
+﻿@page "/user/{username}"
 @using System.ComponentModel.DataAnnotations
 @rendermode InteractiveServer
+@inject NavigationManager navigationManager
 
-@if (IsUserLoggedIn) @*Is User Logged in successfully*@
-{
-    <div>
-        <label>
-            Hello @user.Username, Welcome to the practice test.
-
-            Would you like a tutorial of the app?
-
-        </label>
-    </div>
-
-    @foreach (Test test in user.ResultHistory)
-    {
-        <div>
-            <label>
-                Your Score is: @test.FinalScore/45
-            </label>
-            <br />
-            @if (test.FinalScore >= 41)
-            {
-                <label>
-                    You have passed! Congratulations
-                </label>
-            }
-            else
-            {
-                <label>
-                    You have failed! Sorry
-                </label>
-            }
-            <br />
-            <label>
-                Your Test Date is: @test.TestDate
-            </label>
-        </div>
-    }
-}
-else @*Is User failed to login*@
-{
-    @if (IsNewUser)
-    {
-        @*Registation For new user*@
-        
-    }
-    else
-    {
-        <EditForm Model="@model" OnValidSubmit="@ValidateLogin">
-            <DataAnnotationsValidator />
-            <ValidationSummary />
-            <MudGrid>
-                <MudItem xs="12" sm="7">
-                    <MudCard>
-                        <MudCardContent>
-                            <MudTextField Label="Username" HelperText="Enter your username"
-                                          @bind-Value="@model.Username" For="@(() => model.Username)" />
-                            <MudTextField Label="Password" HelperText="Enter your password" Class="mt-3"
-                                          @bind-Value="@model.Password" For="@(() => model.Password)" InputType="InputType.Password" />
-                        </MudCardContent>
-                        <MudCardActions>
-                            <MudButton ButtonType="ButtonType.Submit" Variant="Variant.Filled" Color="Color.Primary" Class="ml-auto">Submit</MudButton>
-                        </MudCardActions>
-                    </MudCard>
-                </MudItem>
-                <MudItem xs="12" sm="7">
-                    <MudText Typo="Typo.body2" Align="Align.Center">
-                        New her please, Register
-                    </MudText>
-                </MudItem>
-                <MudItem xs="12" sm="5">
-                    <MudText Typo="Typo.body2" Align="Align.Center">
-                        <MudButton ButtonType="ButtonType.Button" Variant="Variant.Filled" OnClick="@ShowRegisterUser"
-                                   Color="Color.Primary" Class="ml-auto">New User</MudButton>
-                    </MudText>
-                </MudItem>
-            </MudGrid>
-        </EditForm>
-    }    
-}
-
+<MudGrid>
+    <MudItem>
+        <MudCard>
+            <MudCardHeader>
+                <CardHeaderContent>
+                    <MudText>Hello @user.Username, Welcome to the practice test.</MudText>
+                    <MudText>Would you like a tutorial of the app?</MudText>
+                </CardHeaderContent>
+            </MudCardHeader>
+            <MudCardContent>
+                <MudTable Items="@user.ResultHistory.AsEnumerable()" Hover="true" Breakpoint="Breakpoint.Sm" Loading="@_loading" LoadingProgressColor="Color.Info">
+                    <HeaderContent>
+                        <MudTh>Test Date</MudTh>
+                        <MudTh>Total</MudTh>
+                        <MudTh>FinalScore</MudTh>
+                        <MudTh>Percentage</MudTh>
+                        <MudTh>Pass/Fail</MudTh>
+                    </HeaderContent>
+                    <RowTemplate>
+                        <MudTd DataLabel="Test Date">@context.TestDate</MudTd>
+                            <MudTd DataLabel="Total">@context.TotalScore</MudTd>
+                            <MudTd DataLabel="FinalScore">@context.FinalScore</MudTd>
+                            <MudTd DataLabel="Percentage">@((context.FinalScore / context.TotalScore) * 100) %</MudTd>
+                            <MudTd DataLabel="Pass/Fail">@(context.FinalScore >= context.PassScore ? "Pass" : "Fail")</MudTd>
+                        </RowTemplate>
+                    </MudTable>
+                </MudCardContent>
+                <MudCardActions>
+                    <MudButton ButtonType="ButtonType.Button" Variant="Variant.Filled" OnClick="@StartTest"
+                               Color="Color.Primary" Class="ml-auto">Start Test</MudButton>
+                </MudCardActions>
+            </MudCard>
+        </MudItem>
+    </MudGrid>
 
 @code {
     private User user;
-    private bool IsUserLoggedIn;
-    private bool IsNewUser;
+
     private UserManager userManager;
+    private bool _loading;
 
-    private string userstr = "";
+    [Parameter]
+    public string username { get; set; }     
 
-    private LoginModel model = new LoginModel();
 
     protected override void OnInitialized()
     {
-        base.OnInitialized();
         userManager = new UserManager();
 
-    }
-
-    private void ValidateLogin(EditContext context)
-    {
-        bool isLoggedIn = userManager.UserLogin(model.Username, model.Password);
-
-        if (isLoggedIn == true)
+        if (!string.IsNullOrEmpty(username))
         {
-            IsUserLoggedIn = true;
-            user = userManager.GetUser(model.Username);
+            user = userManager.GetUser(username);
         }
-        StateHasChanged();
-
     }
 
-    private void ShowRegisterUser()
+    private void StartTest()
     {
-        IsNewUser = true;
+        navigationManager.NavigateTo($"/question/{user.Username}", forceLoad: true);
     }
 
-    public class LoginModel
-    {
-        [Required]
-        public string Password { get; set; }
-
-        [Required]
-        public string Username { get; set; }
-    }
 }
 

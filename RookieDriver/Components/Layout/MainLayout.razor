@@ -12,13 +12,13 @@
         <MudToggleIconButton @bind-Toggled="@isDarkMode" Icon="@Icons.Material.Filled.DarkMode" Color="@Color.Error" Title="Switch To Dark"
                              ToggledIcon="@Icons.Material.Filled.LightMode" ToggledColor="@Color.Success" ToggledTitle="Switch To Light"/>
     </MudAppBar>
-    <MudDrawer @bind-Open="@_drawerOpen">
+@*     <MudDrawer @bind-Open="@_drawerOpen">
         <NavMenu/>
-    </MudDrawer>
+    </MudDrawer> *@
     <MudMainContent>
-        <MudContainer MaxWidth="MaxWidth.Large">
+        <MudContainer MaxWidth="MaxWidth.ExtraExtraLarge">
             @Body
-        </MudContainer>
+        </MudContainer>  
     </MudMainContent>
 </MudLayout>
 

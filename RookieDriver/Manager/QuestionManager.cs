@@ -8,26 +8,41 @@ namespace RookieDriver.Manager
     {
         private int NO_OF_QUESTION_FOR_TEST = 45;
 
-        public List<Question> GiveMeTestQuestion()
-        {
-            List<Question> allQuestions = JsonReadWrite.ReadQuestions(); // Read all question from QuestionBank.json. && Store it in a variable.
+        private List<Question> questionList = new List<Question>();
 
+        private int PassScore = 41;
+
+        private Random random = Random.Shared; // Random number generator
+
+        public QuestionManager() 
+        {
+            questionList = JsonReadWrite.ReadQuestions(); // Read all question from QuestionBank.json. && Store it in a variable.
+            NO_OF_QUESTION_FOR_TEST = questionList.Count;
+            PassScore = (int)Math.Round(0.9*NO_OF_QUESTION_FOR_TEST, MidpointRounding.AwayFromZero);
+        }
+
+        public int TotalQuestionCount() => NO_OF_QUESTION_FOR_TEST;
+
+        public int PassScoreCount() => PassScore;
+
+        public List<Question> GiveAllQuestions() => questionList.OrderBy(x => random.Next()).ToList();
+
+        public List<Question> GiveRandomQuestions()
+        {
             List<Question> questionList = new List<Question>(); // Create a list for user to take test
 
             List<int> positionList = new List<int>(); // Track the positions generated so its always unique Qs.
 
-            Random random = new Random(); // Random number generator
-
             for (int i = 0; i < NO_OF_QUESTION_FOR_TEST; i++) // Loop 45 times to get 45 questions.
             {
-                var position = random.Next(allQuestions.Count - 1); // Generate a random position with max value of all questions count
+                var position = random.Next(questionList.Count - 1); // Generate a random position with max value of all questions count
 
                 if (positionList.Contains(position)) // Check if the position is unique
                 {
                     continue; // Is found you continue;
                 }
 
-                var randomQuestion = allQuestions[position]; // Get the Question from the position
+                var randomQuestion = questionList[position]; // Get the Question from the position
 
                 randomQuestion.Options.OrderBy(x => random.Next()); // Shuffle the options
 
