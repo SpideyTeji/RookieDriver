@@ -62,7 +62,7 @@ else
                     <MudGrid>
                         <MudItem md="4">
                             <MudRadioGroup Name="Options" @bind-Value="@DisplayQuestion.UserAnswer">
-                                @foreach (var option in DisplayQuestion.Options.OrderBy(x => Random.Shared.Next()).ToList())
+                                @foreach (var option in DisplayQuestion.Options)
                                 {
                                     <MudRadio Value="@option.Id">@option.Description</MudRadio>
                                 }
