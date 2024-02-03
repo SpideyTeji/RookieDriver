@@ -18,13 +18,13 @@
                         <MudCard>
                             <MudCardContent>
                                 <MudTextField Label="Email" HelperText="Enter your email" Class="mt-3"
-                                              @bind-Value="@usermodel.Password" For="@(() => usermodel.Password)" InputType="InputType.Email" />
+                                              @bind-Value="@usermodel.Email" For="@(() => usermodel.Email)" InputType="InputType.Email" />
                                 <MudTextField Label="Username" HelperText="Enter your username"
                                               @bind-Value="@usermodel.Username" For="@(() => usermodel.Username)" />
                                 <MudTextField Label="Password" HelperText="Enter your password" Class="mt-3"
-                                              @bind-Value="@usermodel.Password" For="@(() => usermodel.Password)" />
+                                              @bind-Value="@usermodel.Password" For="@(() => usermodel.Password)" InputType="InputType.Password" />
                                 <MudTextField Label="Confirm Password" HelperText="Enter your password" Class="mt-3"
-                                              @bind-Value="@usermodel.ConfirmPassword" For="@(() => usermodel.ConfirmPassword)" />
+                                              @bind-Value="@usermodel.ConfirmPassword" For="@(() => usermodel.ConfirmPassword)" InputType="InputType.Password" />
                             </MudCardContent>
                             <MudCardActions>
                                 <MudButton ButtonType="ButtonType.Submit" Variant="Variant.Filled" Color="Color.Primary" Class="ml-auto">Create</MudButton>
@@ -86,8 +86,11 @@
 
     private void CreateUser()
     {
-        var newuser = userManager.NewUser(usermodel.Email, usermodel.Username, usermodel.Password);
-        IsNewUser = false;
+        if(usermodel.Password == usermodel.ConfirmPassword)
+        {
+            var newuser = userManager.NewUser(usermodel.Email, usermodel.Username, usermodel.Password);
+            IsNewUser = false;
+        }
     }
 
     private void ShowRegisterUser()

@@ -10,7 +10,7 @@
                 <MudCardHeader>
                     <MudChip Size="Size.Large" Label="true" Color="Color.Info">
                         <AvatarContent>
-                            <MudAvatar>@(username.Take(2))</MudAvatar>
+                            <MudAvatar>@(username.Substring(0, 2))</MudAvatar>
                         </AvatarContent>
                         <ChildContent>Hello @username, Thank you for taking the test</ChildContent>
                     </MudChip>
@@ -97,6 +97,8 @@ else
     [Parameter]
     public string username { get; set; }
 
+
+    private string avatarName;
     private QuestionManager _QManager = new QuestionManager();
     private UserManager _UManager = new UserManager();
 
@@ -127,7 +129,7 @@ else
 
     public void FinishTest()
     {
-        navigationManager.NavigateTo($"/{username}", forceLoad: true);
+        navigationManager.NavigateTo($"/user/{username}", forceLoad: true);
     }
 
     public void SubmitTest()
