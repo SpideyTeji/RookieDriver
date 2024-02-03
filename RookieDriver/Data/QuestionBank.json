@@ -702,5 +702,137 @@
         "QuestionId": 32
       }
     ]
+  },
+  {
+    "Description": "You borrow a friend's car and find that the position of the driver's seat puts you sitting a long way from the steering wheel and controls. What should you do?",
+    "Id": 33,
+    "CorrectAnswer": 1,
+    "Options": [
+      {
+        "Description": " Adjust the seat forward so it's right for you.",
+        "Id": 1,
+        "QuestionId": 33
+      },
+      {
+        "Description": " Put up with the discomfort; you should not adjust another person's seat.",
+        "Id": 2,
+        "QuestionId": 33
+      },
+      {
+        "Description": " Ask your friend for a cushion to place behind your back.",
+        "Id": 3,
+        "QuestionId": 33
+      }
+    ]
+  },
+  {
+    "Description": "You are driving on a freeway and realise you forgot something at home. You want to go back for it. Can you do a U-turn on this road?",
+    "Id": 34,
+    "CorrectAnswer": 1,
+    "Options": [
+      {
+        "Description": " No, not at any time.",
+        "Id": 1,
+        "QuestionId": 34
+      },
+      {
+        "Description": " Yes, any time.",
+        "Id": 2,
+        "QuestionId": 34
+      },
+      {
+        "Description": " Yes, providing you use the gravel joining roads.",
+        "Id": 3,
+        "QuestionId": 34
+      }
+    ]
+  },
+  {
+    "Description": "You have a six year old child with you in your car. You have just parked so you can collect a prescription from the chemist. You should -",
+    "Id": 35,
+    "CorrectAnswer": 1,
+    "Options": [
+      {
+        "Description": " Take the child with you.",
+        "Id": 1,
+        "QuestionId": 35
+      },
+      {
+        "Description": " Leave the child in the car.",
+        "Id": 2,
+        "QuestionId": 35
+      },
+      {
+        "Description": " Ask an older person sitting nearby to watch the child.",
+        "Id": 3,
+        "QuestionId": 35
+      }
+    ]
+  },
+  {
+    "Description": "You are in busy traffic and slow down for a bicycle rider. A driver behind you beeps a horn and pressures you to go around the bike and drive faster. How should you respond?",
+    "Id": 36,
+    "CorrectAnswer": 1,
+    "Options": [
+      {
+        "Description": " Resist the pressure, stay calm and overtake the cyclist when it is safe.",
+        "Id": 1,
+        "QuestionId": 36
+      },
+      {
+        "Description": " Overtake the bike quickly and speed up to stop the other driver becoming aggressive.",
+        "Id": 2,
+        "QuestionId": 36
+      },
+      {
+        "Description": " Go slower because the slower you go the safer you are.",
+        "Id": 3,
+        "QuestionId": 36
+      }
+    ]
+  },
+  {
+    "Description": "Generally, if you hear the siren of an emergency vehicle you should -",
+    "Id": 37,
+    "CorrectAnswer": 1,
+    "Options": [
+      {
+        "Description": " Pull over to the left until the emergency vehicle passes.",
+        "Id": 1,
+        "QuestionId": 37
+      },
+      {
+        "Description": " Immediately come to a stop.",
+        "Id": 2,
+        "QuestionId": 37
+      },
+      {
+        "Description": " Let the emergency vehicle pass and follow it closely behind.",
+        "Id": 3,
+        "QuestionId": 37
+      }
+    ]
+  },
+  {
+    "Description": "When there are three lanes on a freeway -",
+    "Id": 38,
+    "CorrectAnswer": 1,
+    "Options": [
+      {
+        "Description": " The right lane is reserved for overtaking.",
+        "Id": 1,
+        "QuestionId": 38
+      },
+      {
+        "Description": " The right lane is for emergency vehicles only.",
+        "Id": 2,
+        "QuestionId": 38
+      },
+      {
+        "Description": " The right lane is for avoiding most traffic.",
+        "Id": 3,
+        "QuestionId": 38
+      }
+    ]
   }
 ]
