@@ -25,7 +25,7 @@
                         <MudTd DataLabel="Test Date">@context.TestDate</MudTd>
                             <MudTd DataLabel="Total">@context.TotalScore</MudTd>
                             <MudTd DataLabel="FinalScore">@context.FinalScore</MudTd>
-                            <MudTd DataLabel="Percentage">@((context.FinalScore / context.TotalScore) * 100) %</MudTd>
+                            <MudTd DataLabel="Percentage">@(Math.Round(((double)context.FinalScore / (double)context.TotalScore) * 100, 2)) %</MudTd>
                             <MudTd DataLabel="Pass/Fail">@(context.FinalScore >= context.PassScore ? "Pass" : "Fail")</MudTd>
                         </RowTemplate>
                     </MudTable>

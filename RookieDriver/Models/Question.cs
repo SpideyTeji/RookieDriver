@@ -34,6 +34,7 @@ namespace RookieDriver.Models
             this.Email = email;
             this.Username = username;
             this.Password  = password;
+            this.ResultHistory = new List<Test>();
         }
 
         public string Email { get; set; }
