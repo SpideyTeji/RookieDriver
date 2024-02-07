@@ -1,4 +1,5 @@
 ﻿@inherits LayoutComponentBase
+@inject NavigationManager navigationManager
 
 <MudThemeProvider @bind-IsDarkMode="@isDarkMode" Theme="_theme" />
 <MudDialogProvider />
@@ -6,9 +7,14 @@
 
 <MudLayout>
     <MudAppBar>
-        <MudIconButton Icon="@Icons.Material.Filled.Menu" Color="Color.Inherit" Edge="Edge.Start" OnClick="@((e) => DrawerToggle())" />
        Rookie Driver
         <MudSpacer />
+        @if(RookieDriverContext.IsUserLoggedIn)
+        {
+            <MudIconButton Icon="@Icons.Material.Filled.Logout" Color="Color.Secondary" aria-label="add to favorite" OnClick="@Logout"/>
+        }else{
+            <MudIconButton Icon="@Icons.Material.Filled.Login" Color="Color.Secondary" aria-label="add to favorite" OnClick="@Login" />
+        }
         <MudToggleIconButton @bind-Toggled="@isDarkMode" Icon="@Icons.Material.Filled.DarkMode" Color="@Color.Error" Title="Switch To Dark"
                              ToggledIcon="@Icons.Material.Filled.LightMode" ToggledColor="@Color.Success" ToggledTitle="Switch To Light"/>
     </MudAppBar>
@@ -16,7 +22,7 @@
         <NavMenu/>
     </MudDrawer> *@
     <MudMainContent>
-        <MudContainer MaxWidth="MaxWidth.ExtraExtraLarge">
+        <MudContainer MaxWidth="MaxWidth.Large">
             @Body
         </MudContainer>  
     </MudMainContent>
@@ -31,5 +37,16 @@
     void DrawerToggle()
     {
         _drawerOpen = !_drawerOpen;
+    }
+
+    void Logout()
+    {
+        RookieDriverContext.IsUserLoggedIn = false;
+        RookieDriverContext.LoggedInUsername = string.Empty;
+    }
+
+    void Login()
+    {
+        navigationManager.NavigateTo("/", true);
     }
 }
