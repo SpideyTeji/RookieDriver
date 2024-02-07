@@ -3,7 +3,7 @@
     "Description": "Can a P1 or P2 provisional driver legally instruct a learner driver?",
     "Id": 1,
     "CorrectAnswer": 1,
-    "ImagePath" : "q12.bmp",
+    "FileName" : "q12.bmp",
     "Options": [
       {
         "Description": " No.",
@@ -26,6 +26,7 @@
     "Description": "To progress to a P2 provisional licence a P1 provisional driver must hold a P1 licence for a minimum period of",
     "Id": 2,
     "CorrectAnswer": 1,
+    "FileName": "q12.bmp",
     "Options": [
       {
         "Description": " 12 months.",
@@ -48,6 +49,7 @@
     "Description": "If one or two of your wheels run off the edge of the roadway you should",
     "Id": 3,
     "CorrectAnswer": 1,
+    "FileName": "q12.bmp",
     "Options": [
       {
         "Description": " Slow down gradually and ease back onto the road.",
@@ -70,6 +72,7 @@
     "Description": "If there are no lanes marked on the road you should drive",
     "Id": 4,
     "CorrectAnswer": 1,
+    "FileName": "q12.bmp",
     "Options": [
       {
         "Description": " Near to the left-hand side of the road.",
@@ -92,6 +95,7 @@
     "Description": "How close can you park to another vehicle when parked parallel to the kerb?",
     "Id": 5,
     "CorrectAnswer": 1,
+    "FileName": "q12.bmp",
     "Options": [
       {
         "Description": " You must leave at least 1 metre front and back.",
@@ -114,6 +118,7 @@
     "Description": "Where there is parallel kerbside parking, are you allowed to double-park alongside a parked vehicle?",
     "Id": 6,
     "CorrectAnswer": 1,
+    "FileName": "q12.bmp",
     "Options": [
       {
         "Description": " No, not at any time.",
@@ -136,6 +141,7 @@
     "Description": "Do you have any responsibilities when opening a vehicle door on a roadway?",
     "Id": 7,
     "CorrectAnswer": 1,
+    "FileName": "q12.bmp",
     "Options": [
       {
         "Description": " Yes, you must not open a door if you are likely to cause danger to road users or impede traffic.",
@@ -158,6 +164,7 @@
     "Description": "Are you permitted to park on a median strip or traffic island?",
     "Id": 8,
     "CorrectAnswer": 1,
+    "FileName": "q12.bmp",
     "Options": [
       {
         "Description": " No, not at any time.",
@@ -179,7 +186,7 @@
   {
     "Description": "When driving at sunset or dawn on a dark day, what should you do?",
     "Id": 9,
-    "CorrectAnswer": 1,
+   "CorrectAnswer": 1,"FileName": "q12.bmp",
     "Options": [
       {
         "Description": " Turn on your lights on low beam.",
@@ -201,7 +208,7 @@
   {
     "Description": "You are driving at night with your headlights on high beam. When should you dip your headlights?",
     "Id": 10,
-    "CorrectAnswer": 1,
+   "CorrectAnswer": 1,"FileName": "q12.bmp",
     "Options": [
       {
         "Description": " When within 200 metres of the vehicle ahead or an oncoming one.",
@@ -223,7 +230,7 @@
   {
     "Description": "Is it an offence to obstruct clear vision of your number plates?",
     "Id": 11,
-    "CorrectAnswer": 1,
+   "CorrectAnswer": 1,"FileName": "q12.bmp",
     "Options": [
       {
         "Description": " Yes, at any time.",
@@ -245,7 +252,7 @@
   {
     "Description": "Before driving on a freeway, which of the following should you do?",
     "Id": 12,
-    "CorrectAnswer": 1,
+   "CorrectAnswer": 1,"FileName": "q12.bmp",
     "Options": [
       {
         "Description": " Make sure your vehicle has enough fuel, oil, water and the correct tyre pressure.",
@@ -267,7 +274,7 @@
   {
     "Description": "What must you do if you miss your exit on a freeway?",
     "Id": 13,
-    "CorrectAnswer": 1,
+   "CorrectAnswer": 1,"FileName": "q12.bmp",
     "Options": [
       {
         "Description": " Continue until you reach the next appropriate exit.",
@@ -289,7 +296,7 @@
   {
     "Description": "As you leave a freeway, which of the following should you check?",
     "Id": 14,
-    "CorrectAnswer": 1,
+   "CorrectAnswer": 1,"FileName": "q12.bmp",
     "Options": [
       {
         "Description": " Your speed.",
@@ -311,7 +318,7 @@
   {
     "Description": "Are you permitted to drive a car towing more than one trailer?",
     "Id": 15,
-    "CorrectAnswer": 1,
+   "CorrectAnswer": 1,"FileName": "q12.bmp",
     "Options": [
       {
         "Description": " No, not at all.",
@@ -333,7 +340,7 @@
   {
     "Description": "What must you do when you are towing a caravan to help other vehicles overtake?",
     "Id": 16,
-    "CorrectAnswer": 1,
+   "CorrectAnswer": 1,"FileName": "q12.bmp",
     "Options": [
       {
         "Description": " Keep at least 60 metres behind heavy vehicles or other vehicles towing caravans.",
@@ -355,7 +362,7 @@
   {
     "Description": "Are you permitted to tow a caravan with a person riding in the caravan?",
     "Id": 17,
-    "CorrectAnswer": 1,
+   "CorrectAnswer": 1,"FileName": "q12.bmp",
     "Options": [
       {
         "Description": " No, not under any circumstances.",
@@ -377,7 +384,7 @@
   {
     "Description": "Before driving a long distance at fast speed or carrying a full car load, you should-",
     "Id": 18,
-    "CorrectAnswer": 1,
+   "CorrectAnswer": 1,"FileName": "q12.bmp",
     "Options": [
       {
         "Description": " Check your tyre pressure, and if necessary, increase it to what the manufacturer recommends.",
@@ -399,7 +406,7 @@
   {
     "Description": "If an oncoming vehicle crosses the centre line and is coming straight at you and you cannot stop, you should -",
     "Id": 19,
-    "CorrectAnswer": 1,
+   "CorrectAnswer": 1,"FileName": "q12.bmp",
     "Options": [
       {
         "Description": " Brake, look for room to the left, sound your horn and flash your lights.",
@@ -421,7 +428,7 @@
   {
     "Description": "If you are involved in an accident where your vehicle needs to be towed away and the Police does not attend the crash scene, you -",
     "Id": 20,
-    "CorrectAnswer": 1,
+   "CorrectAnswer": 1,"FileName": "q12.bmp",
     "Options": [
       {
         "Description": " Must report the accident to the Police Station nearest to where the accident happened within 24 hours.",
@@ -443,7 +450,7 @@
   {
     "Description": "Stop signs or flashing lights at railway crossings should always be obeyed, because -",
     "Id": 21,
-    "CorrectAnswer": 1,
+   "CorrectAnswer": 1,"FileName": "q12.bmp",
     "Options": [
       {
         "Description": " Trains are fast, heavy and cannot stop quickly.",
@@ -465,7 +472,7 @@
   {
     "Description": "You should not drive across a railway level crossing when -",
     "Id": 22,
-    "CorrectAnswer": 1,
+   "CorrectAnswer": 1,"FileName": "q12.bmp",
     "Options": [
       {
         "Description": " Traffic is blocking the other side.",
@@ -487,7 +494,7 @@
   {
     "Description": "You should use your right-hand indicator when -",
     "Id": 23,
-    "CorrectAnswer": 1,
+   "CorrectAnswer": 1,"FileName": "q12.bmp",
     "Options": [
       {
         "Description": " You intend to move to the right, at any time.",
@@ -509,7 +516,7 @@
   {
     "Description": "When merging onto the freeway from the entrance, you should-",
     "Id": 24,
-    "CorrectAnswer": 1,
+   "CorrectAnswer": 1,"FileName": "q12.bmp",
     "Options": [
       {
         "Description": " Look for a large enough break in the traffic and adjust your speed so as to fit into the traffic flow.",
@@ -531,7 +538,7 @@
   {
     "Description": "If you see a sign indicating road repairs are going on, you should -",
     "Id": 25,
-    "CorrectAnswer": 1,
+   "CorrectAnswer": 1,"FileName": "q12.bmp",
     "Options": [
       {
         "Description": " Slow down and watch for traffic controllers and instructions.",
@@ -553,7 +560,7 @@
   {
     "Description": "You see a broken yellow line painted on the roadway adjacent to the kerb. What does it mean?",
     "Id": 26,
-    "CorrectAnswer": 1,
+   "CorrectAnswer": 1,"FileName": "q12.bmp",
     "Options": [
       {
         "Description": " Clearway restrictions apply - you must not stop during the clearway hours.",
@@ -575,7 +582,7 @@
   {
     "Description": "If you see a horse and rider on the road what should you do?",
     "Id": 27,
-    "CorrectAnswer": 1,
+   "CorrectAnswer": 1,"FileName": "q12.bmp",
     "Options": [
       {
         "Description": " Slow down and give them plenty of room.",
@@ -597,7 +604,7 @@
   {
     "Description": "A friend lends you a van that has seats for ten passengers. What type of licence do you need to drive this type of vehicle?",
     "Id": 28,
-    "CorrectAnswer": 1,
+   "CorrectAnswer": 1,"FileName": "q12.bmp",
     "Options": [
       {
         "Description": " A car licence.",
@@ -619,7 +626,7 @@
   {
     "Description": "What are you required to do if you develop a serious medical condition that could affect your driving?",
     "Id": 29,
-    "CorrectAnswer": 1,
+   "CorrectAnswer": 1,"FileName": "q12.bmp",
     "Options": [
       {
         "Description": " Once you become aware of the condition you must notify the RTA.",
@@ -641,7 +648,7 @@
   {
     "Description": "A friend lends you his car. It is very noisy and blows a lot of smoke. He tells you the vehicle has been given a defect notice but it's still OK to drive it. What should you do?",
     "Id": 30,
-    "CorrectAnswer": 1,
+   "CorrectAnswer": 1,"FileName": "q12.bmp",
     "Options": [
       {
         "Description": " Before you borrow the car check the defect notice to make sure it is legal to drive the car.",
@@ -663,7 +670,7 @@
   {
     "Description": "Your car registration expires today. You have your car inspected for registration renewal but it fails the inspection. What should you do?",
     "Id": 31,
-    "CorrectAnswer": 1,
+   "CorrectAnswer": 1,"FileName": "q12.bmp",
     "Options": [
       {
         "Description": " After today you must not drive the car until it has been repaired, passed another inspection and registered.",
@@ -685,7 +692,7 @@
   {
     "Description": "You buy a car and find that the spare tyre is smooth; the tread is only just visible. If you get a puncture will it be legal to drive the car with a smooth spare tyre?",
     "Id": 32,
-    "CorrectAnswer": 1,
+   "CorrectAnswer": 1,"FileName": "q12.bmp",
     "Options": [
       {
         "Description": " No, it's illegal to drive a car with a smooth tyre even if it is the spare.",
@@ -707,7 +714,7 @@
   {
     "Description": "You borrow a friend's car and find that the position of the driver's seat puts you sitting a long way from the steering wheel and controls. What should you do?",
     "Id": 33,
-    "CorrectAnswer": 1,
+   "CorrectAnswer": 1,"FileName": "q12.bmp",
     "Options": [
       {
         "Description": " Adjust the seat forward so it's right for you.",
@@ -729,7 +736,7 @@
   {
     "Description": "You are driving on a freeway and realise you forgot something at home. You want to go back for it. Can you do a U-turn on this road?",
     "Id": 34,
-    "CorrectAnswer": 1,
+   "CorrectAnswer": 1,"FileName": "q12.bmp",
     "Options": [
       {
         "Description": " No, not at any time.",
@@ -751,7 +758,7 @@
   {
     "Description": "You have a six year old child with you in your car. You have just parked so you can collect a prescription from the chemist. You should -",
     "Id": 35,
-    "CorrectAnswer": 1,
+   "CorrectAnswer": 1,"FileName": "q12.bmp",
     "Options": [
       {
         "Description": " Take the child with you.",
@@ -773,7 +780,7 @@
   {
     "Description": "You are in busy traffic and slow down for a bicycle rider. A driver behind you beeps a horn and pressures you to go around the bike and drive faster. How should you respond?",
     "Id": 36,
-    "CorrectAnswer": 1,
+   "CorrectAnswer": 1,"FileName": "q12.bmp",
     "Options": [
       {
         "Description": " Resist the pressure, stay calm and overtake the cyclist when it is safe.",
@@ -795,7 +802,7 @@
   {
     "Description": "Generally, if you hear the siren of an emergency vehicle you should -",
     "Id": 37,
-    "CorrectAnswer": 1,
+   "CorrectAnswer": 1,"FileName": "q12.bmp",
     "Options": [
       {
         "Description": " Pull over to the left until the emergency vehicle passes.",
@@ -817,7 +824,7 @@
   {
     "Description": "When there are three lanes on a freeway -",
     "Id": 38,
-    "CorrectAnswer": 1,
+   "CorrectAnswer": 1,"FileName": "q12.bmp",
     "Options": [
       {
         "Description": " The right lane is reserved for overtaking.",

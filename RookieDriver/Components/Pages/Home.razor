@@ -80,7 +80,9 @@
 
         if (isLoggedIn == true)
         {
-            navigationManager.NavigateTo($"/user/{model.Username}", forceLoad: true);
+            RookieDriverContext.IsUserLoggedIn = true;
+            RookieDriverContext.LoggedInUsername = model.Username;
+            navigationManager.NavigateTo($"/user", forceLoad: true);
         }
     }
 

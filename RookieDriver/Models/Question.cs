@@ -16,7 +16,10 @@ namespace RookieDriver.Models
 
         public List<Option> Options { get; set; }
 
-        public string ImagePath { get; set; }
+        public string FileName { get; set; }
+
+        [JsonIgnore]
+        public string ImageFilePath => $"images/{FileName}";
     }
 
     public class Option

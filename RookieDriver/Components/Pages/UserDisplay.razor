@@ -1,4 +1,4 @@
-﻿@page "/user/{username}"
+﻿@page "/user"
 @using System.ComponentModel.DataAnnotations
 @rendermode InteractiveServer
 @inject NavigationManager navigationManager
@@ -38,18 +38,20 @@
         </MudItem>
     </MudGrid>
 
-@code {
+    @code {
     private User user;
 
     private UserManager userManager;
     private bool _loading;
 
-    [Parameter]
-    public string username { get; set; }     
-
-
     protected override void OnInitialized()
     {
+        if(!RookieDriverContext.IsUserLoggedIn)
+        {
+            navigationManager.NavigateTo($"/", forceLoad: true);
+        }
+
+        var username = RookieDriverContext.LoggedInUsername;
         userManager = new UserManager();
 
         if (!string.IsNullOrEmpty(username))

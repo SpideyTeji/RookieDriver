@@ -1,4 +1,4 @@
-﻿@page "/question/{username}"
+﻿@page "/question"
 @rendermode InteractiveServer
 @inject NavigationManager navigationManager
 
@@ -10,7 +10,7 @@
                 <MudCardHeader>
                     <MudChip Size="Size.Large" Label="true" Color="Color.Info">
                         <AvatarContent>
-                            <MudAvatar>@(username.Substring(0, 2))</MudAvatar>
+                            <MudAvatar>@avatarName</MudAvatar>
                         </AvatarContent>
                         <ChildContent>Hello @username, Thank you for taking the test</ChildContent>
                     </MudChip>
@@ -26,7 +26,7 @@
                     </MudCardMedia>
                 } *@
                 <MudCardContent>
-                    <MudText>You score is @UserScore/@CurrentTest.TotalScore</MudText>
+                    <MudText>You score is @UserScore / @CurrentTest.TotalScore</MudText>
                     @if (UserScore >= @CurrentTest.PassScore)
                     {
                         <MudText>Congratulations! You've passed the test.</MudText>
@@ -46,7 +46,7 @@
 else
 {
     <MudGrid>
-        <MudItem>
+        <MudItem xs="6">
             <MudCard>
                 <MudCardHeader>
                     <CardHeaderContent>
@@ -54,10 +54,6 @@ else
                         <MudText>@DisplayQuestion.Description</MudText>
                     </CardHeaderContent>
                 </MudCardHeader>
-                @if (!string.IsNullOrEmpty(DisplayQuestion.ImagePath))
-                {
-                    <MudCardMedia Image="@($"./img/{DisplayQuestion.ImagePath}")"/>    
-                }
                 <MudCardContent>
                     <MudGrid>
                         <MudItem md="4">
@@ -82,6 +78,12 @@ else
                 </MudCardActions>
             </MudCard>
         </MudItem>
+    @if (!string.IsNullOrEmpty(DisplayQuestion.FileName))
+    {
+        <MudItem xs="6">
+            <MudImage Src="@DisplayQuestion.ImageFilePath" />
+        </MudItem>
+    }
     </MudGrid>
 }
 @code {
@@ -94,11 +96,10 @@ else
     private bool IsSubmitted = false; // flag to check if test is submitted.
     private Test CurrentTest = new Test();
 
-    [Parameter]
     public string username { get; set; }
 
 
-    private string avatarName;
+    private string avatarName => username?.Substring(0, 2);
     private QuestionManager _QManager = new QuestionManager();
     private UserManager _UManager = new UserManager();
 
@@ -107,6 +108,13 @@ else
     /// </summary>
     protected override void OnInitialized()
     {
+        if(!RookieDriverContext.IsUserLoggedIn)
+        {
+            navigationManager.NavigateTo($"/", forceLoad: true);
+        }
+
+        username = RookieDriverContext.LoggedInUsername;
+
         CurrentTest.TotalScore = _QManager.TotalQuestionCount();
         CurrentTest.PassScore = _QManager.PassScoreCount();
         CurrentTest.TestDate = DateTime.Now.Date;
@@ -129,7 +137,7 @@ else
 
     public void FinishTest()
     {
-        navigationManager.NavigateTo($"/user/{username}", forceLoad: true);
+        navigationManager.NavigateTo($"/user", forceLoad: true);
     }
 
     public void SubmitTest()
