@@ -39,7 +39,7 @@
 }
 else
 {
-    <MudGrid>
+    <MudGrid Justify="Justify.Center">
         <MudItem xs="8">
             <MudCard>
                 <MudCardHeader>
@@ -78,18 +78,10 @@ else
             <MudImage Src="@DisplayQuestion.ImageFilePath" />
         </MudItem>
     }
-    <MudItem xs="12" sm="3">
-                <MudButton Variant="Variant.Text" Color="Color.Primary" OnClick="@SubmitTest">Quit Test</MudButton>
+    <MudItem xs="12">
+                <MudButton Variant="Variant.Text" Color="Color.Primary" OnClick="@QuitTest">Quit Test</MudButton>
     </MudItem>
     </MudGrid>
-
-        <MudPopover Open="@IsPopOpen" Fixed="true" Class="px-4 pt-4">
-            <div class="d-flex flex-column">
-                <MudText>Are you sure, you want to quit?, If you click yes, this test won't be recorded!</MudText>
-                <MudButton OnClick="@ConfirmPop" Class="ml-auto mr-n3 mb-1" Color="Color.Error">Yes</MudButton>
-                <MudButton OnClick="@CancelPop" Class="ml-auto mr-n3 mb-1" Color="Color.Error">No</MudButton>
-            </div>
-        </MudPopover>
 }
 
 @code {
@@ -110,6 +102,7 @@ else
     private QuestionManager _QManager = new QuestionManager();
     private UserManager _UManager = new UserManager();
 
+    [Inject] private IDialogService DialogService { get; set; }
     /// <summary>
     /// To Start off your page with initial Data
     /// </summary>
@@ -149,7 +142,7 @@ else
         {
             index++;
             DisplayQuestion = CurrentTest.QuestionList[index];
-        }
+        } 
     }
 
     public void FinishTest()
@@ -179,21 +172,19 @@ else
         IsSubmitted = true;
     }
 
-    public void QuitTest()
+    public async Task QuitTest()
     {
-        IsPopOpen = true;
+        var result = await DialogService.ShowMessageBox(
+           "Are you sure?",
+           "Current test won't be recorded!",
+           yesText: "Yes", cancelText: "No");
+
+        if(result.HasValue && result.Value)
+        {
+            navigationManager.NavigateTo($"/user", forceLoad: true);
+        }
     }
 
-    public void ConfirmPop()
-    {
-        IsPopOpen = false;
-        navigationManager.NavigateTo($"/user", forceLoad: true);
-    }
-
-    public void CancelPop()
-    {
-        IsPopOpen = false;
-    }
 }
 
 
