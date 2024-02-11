@@ -10,10 +10,6 @@
                 <CardHeaderContent>
                     <MudText Typo="Typo.h2">Hello @user.Username, Welcome to the practice test.</MudText>
                     <br/>
-                    <MudText Typo="Typo.h6">Would you like a tutorial of the app?</MudText>
-                    <MudNavLink Href="/tutorial">
-                        Click here!
-                    </MudNavLink>
                 </CardHeaderContent>
             </MudCardHeader>
             <MudCardContent>
@@ -54,7 +50,7 @@
         {
             navigationManager.NavigateTo($"/", forceLoad: true);
         }
-
+        RookieDriverContext.InTutorial = false;
         var username = RookieDriverContext.LoggedInUsername;
         userManager = new UserManager();
 
@@ -66,6 +62,7 @@
 
     private void StartTest()
     {
+        RookieDriverContext.IsTestStarted = true;
         navigationManager.NavigateTo($"/question", forceLoad: true);
     }
 

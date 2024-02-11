@@ -1,1 +1,40 @@
-﻿
+﻿@page "/tutorial"
+@rendermode InteractiveServer
+@inject NavigationManager navigationManager
+
+<MudContainer>
+    <MudGrid Justify="Justify.SpaceEvenly">
+        <MudItem xs="12">
+            <MudCarousel Class="mud-width-full" Style="height:500px;" ShowArrows="true" AutoCycle="false" TData="object">
+                <MudCarouselItem Transition="transition">
+                    <div class="d-flex flex-column flex-column py-8" style="height:100%">
+                        <MudImage Src="images/tutorial-0.png"/>
+                    </div>
+                </MudCarouselItem>
+                <MudCarouselItem Transition="transition">
+                    <div class="d-flex flex-column flex-column py-8" style="height:100%">
+                        <MudImage Src="images/tutorial-1.png" />
+                    </div>
+                </MudCarouselItem>
+            </MudCarousel>
+        </MudItem>
+        <MudItem xs="12">
+            <MudFab Size="Size.Small" StartIcon="@Icons.Material.Filled.CancelPresentation" Color="Color.Error" Label="Close Tutorial" OnClick="@CloseTutorial" />
+        </MudItem>
+    </MudGrid>
+</MudContainer>
+
+@code{
+    private Transition transition = Transition.None;
+
+    protected override void OnInitialized()
+    {
+        RookieDriverContext.InTutorial = true;
+    }
+
+    public void CloseTutorial()
+    {
+        RookieDriverContext.InTutorial = false;
+        navigationManager.NavigateTo("/user", forceLoad: true);
+    }
+}

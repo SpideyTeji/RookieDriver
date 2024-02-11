@@ -9,14 +9,24 @@
     <MudAppBar>
        Rookie Driver
         <MudSpacer />
-        @if(RookieDriverContext.IsUserLoggedIn)
+        @if(!RookieDriverContext.IsTestStarted)
         {
-            <MudIconButton Icon="@Icons.Material.Filled.Logout" Color="Color.Secondary" aria-label="add to favorite" OnClick="@Logout"/>
-        }else{
-            <MudIconButton Icon="@Icons.Material.Filled.Login" Color="Color.Secondary" aria-label="add to favorite" OnClick="@Login" />
+            @if (!RookieDriverContext.InTutorial)
+            {
+                <MudFab Size="Size.Small" StartIcon="@Icons.Material.Filled.Tour" Color="Color.Info" Label="Tutorial" OnClick="@(() => navigationManager.NavigateTo("/tutorial", true))" />
+            }
+            
+            @if (RookieDriverContext.IsUserLoggedIn)
+            {
+                <MudIconButton Icon="@Icons.Material.Filled.Logout" Color="Color.Tertiary" aria-label="add to favorite" OnClick="@Logout" />
+            }
+            else
+            {
+                <MudIconButton Icon="@Icons.Material.Filled.Login" Color="Color.Tertiary" aria-label="add to favorite" OnClick="@Login" />
+            }
         }
-        <MudToggleIconButton @bind-Toggled="@isDarkMode" Icon="@Icons.Material.Filled.DarkMode" Color="@Color.Error" Title="Switch To Dark"
-                             ToggledIcon="@Icons.Material.Filled.LightMode" ToggledColor="@Color.Success" ToggledTitle="Switch To Light"/>
+        <MudToggleIconButton @bind-Toggled="@isDarkMode" Icon="@Icons.Material.Filled.DarkMode" Color="Color.Tertiary" Title="Switch To Dark"
+                             ToggledIcon="@Icons.Material.Filled.LightMode" ToggledColor="Color.Warning" ToggledTitle="Switch To Light"/>
     </MudAppBar>
 @*     <MudDrawer @bind-Open="@_drawerOpen">
         <NavMenu/>

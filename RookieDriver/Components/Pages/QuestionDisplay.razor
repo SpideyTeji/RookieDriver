@@ -112,7 +112,7 @@ else
         {
             navigationManager.NavigateTo($"/", forceLoad: true);
         }
-
+        RookieDriverContext.InTutorial = false;
         username = RookieDriverContext.LoggedInUsername;
 
         InitializeQuestion();
@@ -170,6 +170,7 @@ else
         _UManager.SaveTest(CurrentTest);
 
         IsSubmitted = true;
+        RookieDriverContext.IsTestStarted = false;
     }
 
     public async Task QuitTest()
@@ -181,6 +182,7 @@ else
 
         if(result.HasValue && result.Value)
         {
+            RookieDriverContext.IsTestStarted = false;
             navigationManager.NavigateTo($"/user", forceLoad: true);
         }
     }
