@@ -4,9 +4,7 @@
 
 <PageTitle>DKT practice</PageTitle>
 
-<MudPaper Class="pa-8 align-start d-flex" Width="100%" Outlined="false">
-    <MudSpacer/>
-    <MudContainer MaxWidth="MaxWidth.ExtraExtraLarge">
+<MudContainer MaxWidth="MaxWidth.Small">
     @if (IsNewUser)
     {
         @*Registation For new user*@
@@ -14,7 +12,7 @@
                 <DataAnnotationsValidator />
                 <ValidationSummary />
                 <MudGrid>
-                    <MudItem xs="12" sm="7">
+                    <MudItem xs="12">
                         <MudCard>
                             <MudCardContent>
                                 <MudTextField Label="Email" HelperText="Enter your email" Class="mt-3"
@@ -39,9 +37,9 @@
         <EditForm Model="@model" OnValidSubmit="@ValidateLogin">
             <DataAnnotationsValidator />
             <ValidationSummary />
-            <MudGrid>
-                <MudItem xs="12" sm="7">
-                    <MudCard>
+            <MudGrid Spacing="2" Justify="Justify.FlexStart">
+                <MudItem xs="12">
+                    <MudCard Outlined="true">
                         <MudCardContent>
                             <MudTextField Label="Username" HelperText="Enter your username"
                                       @bind-Value="@model.Username" For="@(() => model.Username)" />
@@ -50,16 +48,19 @@
                         </MudCardContent>
                         <MudCardActions>
                             <MudButton ButtonType="ButtonType.Submit" Variant="Variant.Filled" Color="Color.Primary" Class="ml-auto">Submit</MudButton>
-                            <MudButton ButtonType="ButtonType.Button" Variant="Variant.Filled" OnClick="@ShowRegisterUser"
-                                   Color="Color.Primary" Class="ml-auto">New User</MudButton>
                         </MudCardActions>
                     </MudCard>
                 </MudItem>
+                    <MudItem xs="12" sm="2">
+                        <MudText>New User?</MudText>
+                    </MudItem>
+                <MudItem xs="12" sm="3">
+                    <MudLink OnClick="@ShowRegisterUser" Color="Color.Primary" Class="ml-auto">Register here</MudLink>
+                    </MudItem>
             </MudGrid>
         </EditForm>
     }    
-    </MudContainer>
-</MudPaper>
+</MudContainer>
 
 @code{
 

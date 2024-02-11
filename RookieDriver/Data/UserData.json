@@ -94,6 +94,21 @@
     "Email": "yogesh@marvel.com",
     "Username": "yogi",
     "Password": "yogi123",
-    "ResultHistory": []
+    "ResultHistory": [
+      {
+        "FinalScore": 6,
+        "TotalScore": 18,
+        "PassScore": 16,
+        "TestDate": "11/02/2024",
+        "Username": "yogi"
+      },
+      {
+        "FinalScore": 4,
+        "TotalScore": 18,
+        "PassScore": 16,
+        "TestDate": "11/02/2024",
+        "Username": "yogi"
+      }
+    ]
   }
 ]

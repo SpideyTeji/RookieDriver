@@ -2,9 +2,10 @@
 @rendermode InteractiveServer
 @inject NavigationManager navigationManager
 
+
 @if (IsSubmitted)
 {
-    <MudGrid>
+    <MudGrid Spacing="10" Justify="Justify.Center">
         <MudItem>
             <MudCard>
                 <MudCardHeader>
@@ -15,17 +16,8 @@
                         <ChildContent>Hello @username, Thank you for taking the test</ChildContent>
                     </MudChip>
                 </MudCardHeader>
-               @*  @if (UserScore >= @CurrentTest.PassScore)
-                {
-                    <MudCardMedia />
-                }
-                else
-                {
-                    <MudCardMedia>
-
-                    </MudCardMedia>
-                } *@
                 <MudCardContent>
+                    <MudDivider />
                     <MudText>You score is @UserScore / @CurrentTest.TotalScore</MudText>
                     @if (UserScore >= @CurrentTest.PassScore)
                     {
@@ -35,9 +27,11 @@
                     {
                         <MudText>Unfortunately! You've failed the test.</MudText>
                     }
+                    <MudDivider/>
                 </MudCardContent>
                 <MudCardActions>
                     <MudButton Variant="Variant.Text" Color="Color.Primary" OnClick="@FinishTest">Finish Test</MudButton>
+                    <MudButton Variant="Variant.Text" Color="Color.Primary" OnClick="@RetakeTest">Retake Test</MudButton>
                 </MudCardActions>
             </MudCard>
         </MudItem>
@@ -46,7 +40,7 @@
 else
 {
     <MudGrid>
-        <MudItem xs="6">
+        <MudItem xs="8">
             <MudCard>
                 <MudCardHeader>
                     <CardHeaderContent>
@@ -56,11 +50,11 @@ else
                 </MudCardHeader>
                 <MudCardContent>
                     <MudGrid>
-                        <MudItem md="4">
-                            <MudRadioGroup Name="Options" @bind-Value="@DisplayQuestion.UserAnswer">
+                        <MudItem>
+                                <MudRadioGroup Name="Options" @bind-Value="@DisplayQuestion.UserAnswer" class="d-flex flex-column">
                                 @foreach (var option in DisplayQuestion.Options)
                                 {
-                                    <MudRadio Value="@option.Id">@option.Description</MudRadio>
+                                    <MudRadio class="d-block" Value="@option.Id">@option.Description</MudRadio>
                                 }
                             </MudRadioGroup>
                         </MudItem>
@@ -80,12 +74,24 @@ else
         </MudItem>
     @if (!string.IsNullOrEmpty(DisplayQuestion.FileName))
     {
-        <MudItem xs="6">
+        <MudItem xs="4">
             <MudImage Src="@DisplayQuestion.ImageFilePath" />
         </MudItem>
     }
+    <MudItem xs="12" sm="3">
+                <MudButton Variant="Variant.Text" Color="Color.Primary" OnClick="@SubmitTest">Quit Test</MudButton>
+    </MudItem>
     </MudGrid>
+
+        <MudPopover Open="@IsPopOpen" Fixed="true" Class="px-4 pt-4">
+            <div class="d-flex flex-column">
+                <MudText>Are you sure, you want to quit?, If you click yes, this test won't be recorded!</MudText>
+                <MudButton OnClick="@ConfirmPop" Class="ml-auto mr-n3 mb-1" Color="Color.Error">Yes</MudButton>
+                <MudButton OnClick="@CancelPop" Class="ml-auto mr-n3 mb-1" Color="Color.Error">No</MudButton>
+            </div>
+        </MudPopover>
 }
+
 @code {
     ///  <summary>
     ///  This is my change
@@ -94,7 +100,8 @@ else
     private int index = 0; // position of the question in the list
     private int UserScore = 0;
     private bool IsSubmitted = false; // flag to check if test is submitted.
-    private Test CurrentTest = new Test();
+    private bool IsPopOpen = false;
+    private Test CurrentTest;
 
     public string username { get; set; }
 
@@ -114,6 +121,16 @@ else
         }
 
         username = RookieDriverContext.LoggedInUsername;
+
+        InitializeQuestion();
+    }
+
+    private void InitializeQuestion()
+    {
+        index = 0;
+        IsSubmitted = false;
+
+        CurrentTest = new Test();
 
         CurrentTest.TotalScore = _QManager.TotalQuestionCount();
         CurrentTest.PassScore = _QManager.PassScoreCount();
@@ -140,6 +157,11 @@ else
         navigationManager.NavigateTo($"/user", forceLoad: true);
     }
 
+    public void RetakeTest()
+    {
+        InitializeQuestion();
+    }
+
     public void SubmitTest()
     {
         foreach (Question qAnswered in CurrentTest.QuestionList)
@@ -155,6 +177,22 @@ else
         _UManager.SaveTest(CurrentTest);
 
         IsSubmitted = true;
+    }
+
+    public void QuitTest()
+    {
+        IsPopOpen = true;
+    }
+
+    public void ConfirmPop()
+    {
+        IsPopOpen = false;
+        navigationManager.NavigateTo($"/user", forceLoad: true);
+    }
+
+    public void CancelPop()
+    {
+        IsPopOpen = false;
     }
 }
 

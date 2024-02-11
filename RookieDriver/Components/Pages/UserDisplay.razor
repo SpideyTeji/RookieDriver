@@ -11,6 +11,9 @@
                     <MudText Typo="Typo.h2">Hello @user.Username, Welcome to the practice test.</MudText>
                     <br/>
                     <MudText Typo="Typo.h6">Would you like a tutorial of the app?</MudText>
+                    <MudNavLink Href="/tutorial">
+                        Click here!
+                    </MudNavLink>
                 </CardHeaderContent>
             </MudCardHeader>
             <MudCardContent>
@@ -63,7 +66,7 @@
 
     private void StartTest()
     {
-        navigationManager.NavigateTo($"/question/{user.Username}", forceLoad: true);
+        navigationManager.NavigateTo($"/question", forceLoad: true);
     }
 
 }
