@@ -35,6 +35,10 @@
     public void CloseTutorial()
     {
         RookieDriverContext.InTutorial = false;
-        navigationManager.NavigateTo("/user", forceLoad: true);
+
+        if(RookieDriverContext.IsUserLoggedIn)
+            navigationManager.NavigateTo("/user", forceLoad: true);
+        else
+            navigationManager.NavigateTo("/", forceLoad: true);
     }
 }

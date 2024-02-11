@@ -110,7 +110,7 @@ else
     {
         if(!RookieDriverContext.IsUserLoggedIn)
         {
-            navigationManager.NavigateTo($"/", forceLoad: true);
+            navigationManager.NavigateTo("/", forceLoad: true);
         }
         RookieDriverContext.InTutorial = false;
         username = RookieDriverContext.LoggedInUsername;
@@ -147,7 +147,7 @@ else
 
     public void FinishTest()
     {
-        navigationManager.NavigateTo($"/user", forceLoad: true);
+        navigationManager.NavigateTo("/user", forceLoad: true);
     }
 
     public void RetakeTest()
@@ -183,7 +183,7 @@ else
         if(result.HasValue && result.Value)
         {
             RookieDriverContext.IsTestStarted = false;
-            navigationManager.NavigateTo($"/user", forceLoad: true);
+            navigationManager.NavigateTo("/user", forceLoad: true);
         }
     }
 

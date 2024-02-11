@@ -48,9 +48,11 @@
     {
         if(!RookieDriverContext.IsUserLoggedIn)
         {
-            navigationManager.NavigateTo($"/", forceLoad: true);
+            navigationManager.NavigateTo("/", forceLoad: true);
         }
+
         RookieDriverContext.InTutorial = false;
+
         var username = RookieDriverContext.LoggedInUsername;
         userManager = new UserManager();
 
@@ -63,7 +65,7 @@
     private void StartTest()
     {
         RookieDriverContext.IsTestStarted = true;
-        navigationManager.NavigateTo($"/question", forceLoad: true);
+        navigationManager.NavigateTo("/question", forceLoad: true);
     }
 
 }
