@@ -11,7 +11,7 @@
         <MudSpacer />
         @if(!RookieDriverContext.IsTestStarted)
         {
-            @if (!RookieDriverContext.InTutorial)
+            @if (RookieDriverContext.IsUserLoggedIn && !RookieDriverContext.InTutorial)
             {
                 <MudFab Size="Size.Small" StartIcon="@Icons.Material.Filled.Tour" Color="Color.Info" Label="Tutorial" OnClick="@(() => navigationManager.NavigateTo("/tutorial", true))" />
             }
