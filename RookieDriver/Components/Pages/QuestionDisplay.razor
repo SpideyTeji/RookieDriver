@@ -127,7 +127,7 @@ else
 
         CurrentTest.TotalScore = _QManager.TotalQuestionCount();
         CurrentTest.PassScore = _QManager.PassScoreCount();
-        CurrentTest.TestDate = DateTime.Now.Date;
+        CurrentTest.TestDate = DateTime.Now;
         CurrentTest.Username = username;
 
         CurrentTest.QuestionList = _QManager.GiveRandomQuestions();
