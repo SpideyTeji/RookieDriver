@@ -52,6 +52,62 @@
         "PassScore": 16,
         "TestDate": "03/02/2024",
         "Username": "spidey"
+      },
+      {
+        "FinalScore": 6,
+        "TotalScore": 18,
+        "PassScore": 16,
+        "TestDate": "16/03/2024",
+        "Username": "spidey"
+      },
+      {
+        "FinalScore": 8,
+        "TotalScore": 18,
+        "PassScore": 16,
+        "TestDate": "16/03/2024",
+        "Username": "spidey"
+      },
+      {
+        "FinalScore": 3,
+        "TotalScore": 18,
+        "PassScore": 16,
+        "TestDate": "20/03/2024",
+        "Username": "spidey"
+      },
+      {
+        "FinalScore": 6,
+        "TotalScore": 18,
+        "PassScore": 16,
+        "TestDate": "31/05/2024",
+        "Username": "spidey"
+      },
+      {
+        "FinalScore": 9,
+        "TotalScore": 18,
+        "PassScore": 16,
+        "TestDate": "31/05/2024",
+        "Username": "spidey"
+      },
+      {
+        "FinalScore": 5,
+        "TotalScore": 18,
+        "PassScore": 16,
+        "TestDate": "31/05/2024",
+        "Username": "spidey"
+      },
+      {
+        "FinalScore": 4,
+        "TotalScore": 18,
+        "PassScore": 16,
+        "TestDate": "08/07/2024",
+        "Username": "spidey"
+      },
+      {
+        "FinalScore": 12,
+        "TotalScore": 37,
+        "PassScore": 33,
+        "TestDate": "08/07/2024",
+        "Username": "spidey"
       }
     ]
   },
@@ -110,5 +166,25 @@
         "Username": "yogi"
       }
     ]
+  },
+  {
+    "Email": "jerry@yahoo.com",
+    "Username": "jerrynotfound",
+    "Password": "copium",
+    "ResultHistory": [
+      {
+        "FinalScore": 4,
+        "TotalScore": 18,
+        "PassScore": 16,
+        "TestDate": "12/02/2024",
+        "Username": "jerrynotfound"
+      }
+    ]
+  },
+  {
+    "Email": "Admin@gmail.com",
+    "Username": "Admin",
+    "Password": "Admin123",
+    "ResultHistory": []
   }
 ]
