@@ -24,7 +24,7 @@ namespace RookieDriver.JSON
             string jsonString = File.ReadAllText(Userpath);
 
             IsoDateTimeConverter isoDateTimeConverter = new IsoDateTimeConverter();
-            isoDateTimeConverter.DateTimeFormat = "dd/MM/yyyy mm:hh tt";
+            isoDateTimeConverter.DateTimeFormat = "dd/MM/yyyy hh:mm tt";
 
             List<User> userFromJSON = JsonConvert.DeserializeObject<List<User>>(jsonString, isoDateTimeConverter);
             return userFromJSON.ToList();
@@ -35,7 +35,7 @@ namespace RookieDriver.JSON
             var settings = new JsonSerializerSettings
             {
                 Formatting = Formatting.Indented,
-                DateFormatString = "dd/MM/yyyy mm:hh tt"
+                DateFormatString = "dd/MM/yyyy hh:mm tt"
             };
 
             string jsonString = JsonConvert.SerializeObject(users, settings);

@@ -6,8 +6,11 @@ namespace RookieDriver.Manager
 {
     public class QuestionManager
     {
+#if DEBUG
+        private int NO_OF_QUESTION_FOR_TEST = 5;
+#else
         private int NO_OF_QUESTION_FOR_TEST = 45;
-
+#endif
         private List<Question> AllQuestionList = new List<Question>();
 
         private int PassScore = 41;
