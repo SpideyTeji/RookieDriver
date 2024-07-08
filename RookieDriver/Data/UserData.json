@@ -8,7 +8,7 @@
         "FinalScore": 13,
         "TotalScore": 45,
         "PassScore": 41,
-        "TestDate": "08/07/2024 51:07 PM",
+        "TestDate": "08/07/2024 07:51 PM",
         "Username": "spidey"
       }
     ]
@@ -23,7 +23,15 @@
     "Email": "yogesh@marvel.com",
     "Username": "yogi",
     "Password": "yogi123",
-    "ResultHistory": []
+    "ResultHistory": [
+      {
+        "FinalScore": 1,
+        "TotalScore": 5,
+        "PassScore": 5,
+        "TestDate": "08/07/2024 06:08 PM",
+        "Username": "yogi"
+      }
+    ]
   },
   {
     "Email": "jerry@yahoo.com",
