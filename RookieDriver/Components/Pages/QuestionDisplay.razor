@@ -5,42 +5,40 @@
 
 @if (IsSubmitted)
 {
-    <MudGrid Spacing="10" Justify="Justify.Center">
-        <MudItem>
-            <MudCard>
-                <MudCardHeader>
-                    <MudChip Size="Size.Large" Label="true" Color="Color.Info">
-                        <AvatarContent>
-                            <MudAvatar>@avatarName</MudAvatar>
-                        </AvatarContent>
-                        <ChildContent>Hello @username, Thank you for taking the test</ChildContent>
-                    </MudChip>
-                </MudCardHeader>
-                <MudCardContent>
-                    <MudDivider />
-                    <MudText>You score is @UserScore / @CurrentTest.TotalScore</MudText>
-                    @if (UserScore >= @CurrentTest.PassScore)
-                    {
-                        <MudText>Congratulations! You've passed the test.</MudText>
-                    }
-                    else
-                    {
-                        <MudText>Unfortunately! You've failed the test.</MudText>
-                    }
-                    <MudDivider/>
-                </MudCardContent>
-                <MudCardActions>
-                    <MudButton Variant="Variant.Text" Color="Color.Primary" OnClick="@FinishTest">Finish Test</MudButton>
-                    <MudButton Variant="Variant.Text" Color="Color.Primary" OnClick="@RetakeTest">Retake Test</MudButton>
-                </MudCardActions>
-            </MudCard>
-        </MudItem>
-    </MudGrid>
+    <MudStack Justify="Justify.Center" AlignItems="AlignItems.Center">
+        <MudCard>
+            <MudCardHeader>
+                <MudChip T="string" Size="Size.Large" Label="true" Color="Color.Info">
+                    <AvatarContent>
+                        <MudAvatar>@avatarName</MudAvatar>
+                    </AvatarContent>
+                    <ChildContent>Hello @username, Thank you for taking the test</ChildContent>
+                </MudChip>
+            </MudCardHeader>
+            <MudCardContent>
+                <MudDivider />
+                <MudText>You score is @UserScore / @CurrentTest.TotalScore</MudText>
+                @if (UserScore >= @CurrentTest.PassScore)
+                {
+                    <MudText>Congratulations! You've passed the test.</MudText>
+                }
+                else
+                {
+                    <MudText>Unfortunately! You've failed the test.</MudText>
+                }
+                <MudDivider />
+            </MudCardContent>
+            <MudCardActions>
+                <MudButton Variant="Variant.Text" Color="Color.Primary" OnClick="@FinishTest">Finish Test</MudButton>
+                <MudButton Variant="Variant.Text" Color="Color.Primary" OnClick="@RetakeTest">Retake Test</MudButton>
+            </MudCardActions>
+        </MudCard>
+    </MudStack>
 }
 else
 {
-    <MudGrid Justify="Justify.Center">
-        <MudItem xs="8">
+    <MudStack Justify="Justify.SpaceEvenly" AlignItems="AlignItems.Center">
+        <MudStack Row="true" Justify="Justify.FlexStart" AlignItems="AlignItems.Stretch" Spacing="20">
             <MudCard>
                 <MudCardHeader>
                     <CardHeaderContent>
@@ -51,7 +49,7 @@ else
                 <MudCardContent>
                     <MudGrid>
                         <MudItem>
-                                <MudRadioGroup Name="Options" @bind-Value="@DisplayQuestion.UserAnswer" class="d-flex flex-column">
+                            <MudRadioGroup Name="Options" @bind-Value="@DisplayQuestion.UserAnswer" class="d-flex flex-column">
                                 @foreach (var option in DisplayQuestion.Options)
                                 {
                                     <MudRadio class="d-block" Value="@option.Id">@option.Description</MudRadio>
@@ -71,17 +69,14 @@ else
                     }
                 </MudCardActions>
             </MudCard>
-        </MudItem>
-    @if (!string.IsNullOrEmpty(DisplayQuestion.FileName))
-    {
-        <MudItem xs="4">
-            <MudImage Src="@DisplayQuestion.ImageFilePath" />
-        </MudItem>
-    }
-    <MudItem xs="12">
-                <MudButton Variant="Variant.Text" Color="Color.Primary" OnClick="@QuitTest">Quit Test</MudButton>
-    </MudItem>
-    </MudGrid>
+            @if (!string.IsNullOrWhiteSpace(DisplayQuestion.FileName))
+            {
+                <MudImage Src="@DisplayQuestion.ImageFilePath" />
+            }
+        </MudStack>
+        @* <MudButton Variant="Variant.Text" Color="Color.Primary" OnClick="@QuitTest">Quit Test</MudButton> *@
+        <MudFab Size="Size.Small" StartIcon="@Icons.Material.Filled.CancelPresentation" Color="Color.Primary" Label="Quit Test" OnClick="@QuitTest" />
+    </MudStack>    
 }
 
 @code {
@@ -142,6 +137,11 @@ else
         {
             index++;
             DisplayQuestion = CurrentTest.QuestionList[index];
+
+            if (!string.IsNullOrWhiteSpace(DisplayQuestion.FileName))
+            {
+                Console.WriteLine("image foiuynf");
+            }
         } 
     }
 
