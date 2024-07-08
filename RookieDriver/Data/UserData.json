@@ -5,122 +5,10 @@
     "Password": "spidey123",
     "ResultHistory": [
       {
-        "FinalScore": 30,
+        "FinalScore": 13,
         "TotalScore": 45,
         "PassScore": 41,
-        "TestDate": "21/01/2024",
-        "Username": "spidey"
-      },
-      {
-        "FinalScore": 35,
-        "TotalScore": 45,
-        "PassScore": 41,
-        "TestDate": "22/01/2024",
-        "Username": "spidey"
-      },
-      {
-        "FinalScore": 43,
-        "TotalScore": 45,
-        "PassScore": 41,
-        "TestDate": "23/01/2024",
-        "Username": "spidey"
-      },
-      {
-        "FinalScore": 9,
-        "TotalScore": 32,
-        "PassScore": 29,
-        "TestDate": "03/02/2024",
-        "Username": "spidey"
-      },
-      {
-        "FinalScore": 30,
-        "TotalScore": 32,
-        "PassScore": 29,
-        "TestDate": "03/02/2024",
-        "Username": "spidey"
-      },
-      {
-        "FinalScore": 5,
-        "TotalScore": 32,
-        "PassScore": 29,
-        "TestDate": "03/02/2024",
-        "Username": "spidey"
-      },
-      {
-        "FinalScore": 5,
-        "TotalScore": 18,
-        "PassScore": 16,
-        "TestDate": "03/02/2024",
-        "Username": "spidey"
-      },
-      {
-        "FinalScore": 6,
-        "TotalScore": 18,
-        "PassScore": 16,
-        "TestDate": "16/03/2024",
-        "Username": "spidey"
-      },
-      {
-        "FinalScore": 8,
-        "TotalScore": 18,
-        "PassScore": 16,
-        "TestDate": "16/03/2024",
-        "Username": "spidey"
-      },
-      {
-        "FinalScore": 3,
-        "TotalScore": 18,
-        "PassScore": 16,
-        "TestDate": "20/03/2024",
-        "Username": "spidey"
-      },
-      {
-        "FinalScore": 6,
-        "TotalScore": 18,
-        "PassScore": 16,
-        "TestDate": "31/05/2024",
-        "Username": "spidey"
-      },
-      {
-        "FinalScore": 9,
-        "TotalScore": 18,
-        "PassScore": 16,
-        "TestDate": "31/05/2024",
-        "Username": "spidey"
-      },
-      {
-        "FinalScore": 5,
-        "TotalScore": 18,
-        "PassScore": 16,
-        "TestDate": "31/05/2024",
-        "Username": "spidey"
-      },
-      {
-        "FinalScore": 4,
-        "TotalScore": 18,
-        "PassScore": 16,
-        "TestDate": "08/07/2024",
-        "Username": "spidey"
-      },
-      {
-        "FinalScore": 12,
-        "TotalScore": 37,
-        "PassScore": 33,
-        "TestDate": "08/07/2024",
-        "Username": "spidey"
-      },
-      {
-        "FinalScore": 22,
-        "TotalScore": 55,
-        "PassScore": 50,
-        "TestDate": "08/07/2024",
-        "Username": "spidey"
-      },
-      {
-        "FinalScore": 18,
-        "TotalScore": 45,
-        "PassScore": 41,
-        "TestDate": "08/07/2024",
+        "TestDate": "08/07/2024 51:07 PM",
         "Username": "spidey"
       }
     ]
@@ -129,71 +17,19 @@
     "Email": "shiren@shiren.com",
     "Username": "shiren",
     "Password": "shiren123",
-    "ResultHistory": [
-      {
-        "FinalScore": 28,
-        "TotalScore": 45,
-        "PassScore": 41,
-        "TestDate": "17/01/2024",
-        "Username": "shiren"
-      },
-      {
-        "FinalScore": 37,
-        "TotalScore": 45,
-        "PassScore": 41,
-        "TestDate": "20/01/2024",
-        "Username": "shiren"
-      },
-      {
-        "FinalScore": 41,
-        "TotalScore": 45,
-        "PassScore": 41,
-        "TestDate": "25/01/2024",
-        "Username": "shiren"
-      },
-      {
-        "FinalScore": 45,
-        "TotalScore": 45,
-        "PassScore": 41,
-        "TestDate": "26/01/2024",
-        "Username": "shiren"
-      }
-    ]
+    "ResultHistory": []
   },
   {
     "Email": "yogesh@marvel.com",
     "Username": "yogi",
     "Password": "yogi123",
-    "ResultHistory": [
-      {
-        "FinalScore": 6,
-        "TotalScore": 18,
-        "PassScore": 16,
-        "TestDate": "11/02/2024",
-        "Username": "yogi"
-      },
-      {
-        "FinalScore": 4,
-        "TotalScore": 18,
-        "PassScore": 16,
-        "TestDate": "11/02/2024",
-        "Username": "yogi"
-      }
-    ]
+    "ResultHistory": []
   },
   {
     "Email": "jerry@yahoo.com",
     "Username": "jerrynotfound",
     "Password": "copium",
-    "ResultHistory": [
-      {
-        "FinalScore": 4,
-        "TotalScore": 18,
-        "PassScore": 16,
-        "TestDate": "12/02/2024",
-        "Username": "jerrynotfound"
-      }
-    ]
+    "ResultHistory": []
   },
   {
     "Email": "Admin@gmail.com",
