@@ -27,6 +27,19 @@ public class UserManager
         return false;
     }
 
+    public bool ValidateEmail(string email)
+    {
+        foreach (User user in users)
+        {
+            if (user.Email == email)
+            {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
     // Register User - Success/Failure (bool)
     public bool UserRegister(string email, string username, string password)
     {

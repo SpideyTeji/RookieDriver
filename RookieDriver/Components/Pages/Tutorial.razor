@@ -19,7 +19,10 @@
             </MudCarousel>
         </MudItem>
         <MudItem xs="12">
-            <MudFab Size="Size.Small" StartIcon="@Icons.Material.Filled.CancelPresentation" Color="Color.Error" Label="Close Tutorial" OnClick="@CloseTutorial" />
+            <MudButton ButtonType="ButtonType.Button" StartIcon="@Icons.Material.Filled.CancelPresentation" OnClick="@CloseTutorial" 
+                Variant="Variant.Filled" Color="Color.Primary" Class="ml-auto">
+                Close Tutorial
+            </MudButton>
         </MudItem>
     </MudGrid>
 </MudContainer>
