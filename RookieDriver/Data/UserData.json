@@ -101,6 +101,62 @@
         "PassScore": 5,
         "TestDate": "08/07/2024 08:24 PM",
         "Username": "spidey"
+      },
+      {
+        "FinalScore": 4,
+        "TotalScore": 5,
+        "PassScore": 5,
+        "TestDate": "19/07/2024 05:56 PM",
+        "Username": "spidey"
+      },
+      {
+        "FinalScore": 3,
+        "TotalScore": 5,
+        "PassScore": 5,
+        "TestDate": "19/07/2024 05:57 PM",
+        "Username": "spidey"
+      },
+      {
+        "FinalScore": 7,
+        "TotalScore": 5,
+        "PassScore": 5,
+        "TestDate": "19/07/2024 05:58 PM",
+        "Username": "spidey"
+      },
+      {
+        "FinalScore": 9,
+        "TotalScore": 5,
+        "PassScore": 5,
+        "TestDate": "19/07/2024 06:23 PM",
+        "Username": "spidey"
+      },
+      {
+        "FinalScore": 1,
+        "TotalScore": 5,
+        "PassScore": 5,
+        "TestDate": "19/07/2024 06:25 PM",
+        "Username": "spidey"
+      },
+      {
+        "FinalScore": 3,
+        "TotalScore": 5,
+        "PassScore": 5,
+        "TestDate": "19/07/2024 06:25 PM",
+        "Username": "spidey"
+      },
+      {
+        "FinalScore": 4,
+        "TotalScore": 5,
+        "PassScore": 5,
+        "TestDate": "19/07/2024 06:43 PM",
+        "Username": "spidey"
+      },
+      {
+        "FinalScore": 34,
+        "TotalScore": 45,
+        "PassScore": 41,
+        "TestDate": "19/07/2024 06:48 PM",
+        "Username": "spidey"
       }
     ]
   },
@@ -169,7 +225,15 @@
     "Email": "Admin@gmail.com",
     "Username": "Admin",
     "Password": "Admin123",
-    "ResultHistory": []
+    "ResultHistory": [
+      {
+        "FinalScore": 2,
+        "TotalScore": 5,
+        "PassScore": 5,
+        "TestDate": "19/07/2024 02:14 PM",
+        "Username": "Admin"
+      }
+    ]
   },
   {
     "Email": "yogi@yogi.com",
