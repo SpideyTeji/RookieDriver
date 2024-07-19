@@ -154,12 +154,14 @@
         [Required]
         [MinLength(3, ErrorMessage = "Username must be atleast 3 characters long")]
         [MaxLength(20, ErrorMessage = "Username must not be more than 20 characters")]
-        [RegularExpression("[^\\s]{3,20}$", ErrorMessage = "Username must not be have any whitespaces")]
+        [RegularExpression("[^\\s]{3,20}$", ErrorMessage = "Username must not have any whitespaces")]
         public string Username { get; set; }
 
         [Required]
+        [MinLength(3, ErrorMessage = "Password must be atleast 3 characters long")]
+        [MaxLength(20, ErrorMessage = "Password must not be more than 20 characters")]
         [RegularExpression("^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[^\\da-zA-Z]).{8,20}$",
-            ErrorMessage = "Password must have : \n at least one digit\n at least one lowercase character\n at least one uppercase character\n at least one speacial character\n at least 8 characters long\n Not more than 20 characters long")]
+            ErrorMessage = "Password must have be at least one digit, have one lowercase character, one uppercase character, and one special character.")]
         public string Password { get; set; }
 
         [Required(ErrorMessage ="Confirm Password is required!")]

@@ -182,5 +182,11 @@
     "Username": "Yogi1234",
     "Password": "Yogi@123",
     "ResultHistory": []
+  },
+  {
+    "Email": "NewUser@email.com",
+    "Username": "NewUser",
+    "Password": "Use%rName5",
+    "ResultHistory": []
   }
 ]
