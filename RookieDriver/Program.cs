@@ -1,11 +1,15 @@
+using MudBlazor;
 using MudBlazor.Services;
 using RookieDriver.Components;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-builder.Services.AddMudServices()
-     .AddRazorComponents()
+builder.Services.AddMudServices(config =>
+    {
+        config.SnackbarConfiguration.PositionClass = Defaults.Classes.Position.TopCenter;
+    })
+    .AddRazorComponents()
     .AddInteractiveServerComponents();
 
 var app = builder.Build();

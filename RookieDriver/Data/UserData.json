@@ -170,5 +170,17 @@
     "Username": "Admin",
     "Password": "Admin123",
     "ResultHistory": []
+  },
+  {
+    "Email": "yogi@yogi.com",
+    "Username": "yogi123",
+    "Password": "Yogi@123",
+    "ResultHistory": []
+  },
+  {
+    "Email": "yogi@yogi.com",
+    "Username": "Yogi1234",
+    "Password": "Yogi@123",
+    "ResultHistory": []
   }
 ]

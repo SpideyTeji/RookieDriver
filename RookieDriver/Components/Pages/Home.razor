@@ -1,6 +1,7 @@
 ﻿@page "/"
 @using System.ComponentModel.DataAnnotations
 @inject NavigationManager navigationManager
+@inject ISnackbar snackBarService
 
 <PageTitle>DKT practice</PageTitle>
 
@@ -10,7 +11,6 @@
         @*Registation For new user*@
             <EditForm Model="@usermodel" OnValidSubmit="@CreateUser">
                 <DataAnnotationsValidator />
-                <ValidationSummary />
                 <MudGrid>
                     <MudItem xs="12">
                         <MudCard>
@@ -29,6 +29,9 @@
                             </MudCardActions>
                         </MudCard>
                     </MudItem>
+                <MudItem xs="12" sm="3">
+                    <MudLink OnClick="@ShowLoginUser" Color="Color.Primary" Class="ml-auto">Login here</MudLink>
+                </MudItem>
                 </MudGrid>
             </EditForm>
     }
@@ -36,7 +39,6 @@
     {
         <EditForm Model="@model" OnValidSubmit="@ValidateLogin">
             <DataAnnotationsValidator />
-            <ValidationSummary />
             <MudGrid Spacing="2" Justify="Justify.FlexStart">
                 <MudItem xs="12">
                     <MudCard Outlined="true">
@@ -86,20 +88,52 @@
             RookieDriverContext.LoggedInUsername = model.Username;
             navigationManager.NavigateTo("/user", forceLoad: true);
         }
+        else
+        {
+            snackBarService.Add("Incorrect login credentials", Severity.Error, ops => 
+            { 
+                ops.ActionColor = Color.Error; 
+                ops.ActionVariant = Variant.Filled;
+                ops.SnackbarVariant = Variant.Filled;
+            });
+            model = new();
+        }
     }
 
     private void CreateUser()
     {
-        if(usermodel.Password == usermodel.ConfirmPassword)
+        var newuser = userManager.NewUser(usermodel.Email, usermodel.Username, usermodel.Password);
+
+        if(newuser is not null)
         {
-            var newuser = userManager.NewUser(usermodel.Email, usermodel.Username, usermodel.Password);
+            snackBarService.Add("User created, Login to continue.", Severity.Success, ops =>
+            {
+                ops.ActionVariant = Variant.Filled;
+                ops.SnackbarVariant = Variant.Filled;
+            });
+
+            usermodel = new();
             IsNewUser = false;
+        }
+        else
+        {
+            IsNewUser = true;
+            snackBarService.Add("User was not created, Try again.", Severity.Error, ops =>
+            {
+                ops.ActionVariant = Variant.Filled;
+                ops.SnackbarVariant = Variant.Filled;
+            });
         }
     }
 
     private void ShowRegisterUser()
     {
         IsNewUser = true;
+    }
+
+    private void ShowLoginUser()
+    {
+        IsNewUser = false;
     }
 
     public class LoginModel
@@ -118,12 +152,18 @@
         public string Email { get; set; }
 
         [Required]
+        [MinLength(3, ErrorMessage = "Username must be atleast 3 characters long")]
+        [MaxLength(20, ErrorMessage = "Username must not be more than 20 characters")]
+        [RegularExpression("[^\\s]{3,20}$", ErrorMessage = "Username must not be have any whitespaces")]
         public string Username { get; set; }
 
         [Required]
+        [RegularExpression("^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[^\\da-zA-Z]).{8,20}$",
+            ErrorMessage = "Password must have : \n at least one digit\n at least one lowercase character\n at least one uppercase character\n at least one speacial character\n at least 8 characters long\n Not more than 20 characters long")]
         public string Password { get; set; }
 
-        [Required]
+        [Required(ErrorMessage ="Confirm Password is required!")]
+        [Compare("Password",ErrorMessage ="Passwords does not match!")]
         public string ConfirmPassword { get; set; }
 
     }
