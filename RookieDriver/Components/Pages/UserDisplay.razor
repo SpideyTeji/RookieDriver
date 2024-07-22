@@ -13,6 +13,7 @@
                 </CardHeaderContent>
             </MudCardHeader>
             <MudCardContent>
+                @* Display User test attempt history with their scores. *@
                 <MudTable Items="@user.ResultHistory.AsEnumerable()" Hover="true" Breakpoint="Breakpoint.Sm" Loading="@_loading" LoadingProgressColor="Color.Info">
                     <HeaderContent>
                         <MudTh>Test Date</MudTh>
@@ -38,10 +39,10 @@
         </MudItem>
     </MudGrid>
 
-    @code {
-    private User user;
+@code {
+    private User user; // Current user logged in.
 
-    private UserManager userManager;
+    private UserManager userManager; // Manager to read/write user info
     private bool _loading;
 
     protected override void OnInitialized()
@@ -62,6 +63,9 @@
         }
     }
 
+    /// <summary>
+    /// Start the test and navigate to questions page.
+    /// </summary>
     private void StartTest()
     {
         RookieDriverContext.IsTestStarted = true;

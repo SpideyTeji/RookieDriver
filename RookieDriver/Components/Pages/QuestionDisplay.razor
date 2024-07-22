@@ -5,6 +5,7 @@
 
 @if (IsSubmitted)
 {
+    @*Final submission page to display Test scores*@
     <MudStack Justify="Justify.Center" AlignItems="AlignItems.Center">
         <MudCard>
             <MudCardHeader>
@@ -37,6 +38,7 @@
 }
 else
 {
+    @*Display Questions picked randomly*@
     <MudStack Justify="Justify.SpaceEvenly" AlignItems="AlignItems.Center">
         <MudStack Row="true" Justify="Justify.FlexStart" AlignItems="AlignItems.Stretch" Spacing="20">
             <MudCard>
@@ -88,14 +90,15 @@ else
     private int UserScore = 0;
     private bool IsSubmitted = false; // flag to check if test is submitted.
     private bool IsPopOpen = false;
-    private Test CurrentTest;
+    private Test CurrentTest; // variable to track the test state.
 
     public string username { get; set; }
 
 
     private string avatarName => username?.Substring(0, 2);
-    private QuestionManager _QManager = new QuestionManager();
-    private UserManager _UManager = new UserManager();
+    private QuestionManager _QManager = new QuestionManager(); // Question manager to pick questions.
+
+    private UserManager _UManager = new UserManager();// Question manager to read and write user test info.
 
     [Inject] private IDialogService DialogService { get; set; }
     /// <summary>
@@ -113,6 +116,9 @@ else
         InitializeQuestion();
     }
 
+    /// <summary>
+    /// Pick new random question and prepare CurrentTest object.
+    /// </summary>
     private void InitializeQuestion()
     {
         index = 0;
@@ -132,30 +138,37 @@ else
         DisplayQuestion = CurrentTest.QuestionList[index];
     }
 
+    /// <summary>
+    /// Go to next question
+    /// </summary>
     public void Next()
     {
         if (CurrentTest.QuestionList[index].UserAnswer != 0)
         {
             index++;
             DisplayQuestion = CurrentTest.QuestionList[index];
-
-            if (!string.IsNullOrWhiteSpace(DisplayQuestion.FileName))
-            {
-                Console.WriteLine("image foiuynf");
-            }
         } 
     }
 
+    /// <summary>
+    /// Go to User dashboard
+    /// </summary>
     public void FinishTest()
     {
         navigationManager.NavigateTo("/user", forceLoad: true);
     }
 
+    /// <summary>
+    /// Prepare the test again
+    /// </summary>
     public void RetakeTest()
     {
         InitializeQuestion();
     }
 
+    /// <summary>
+    /// Write the test attempt info to user data.
+    /// </summary>
     public void SubmitTest()
     {
         foreach (Question qAnswered in CurrentTest.QuestionList)
@@ -174,6 +187,10 @@ else
         RookieDriverContext.IsTestStarted = false;
     }
 
+    /// <summary>
+    /// Finsh the Test and discard the attempt if yes.
+    /// </summary>
+    /// <returns></returns>
     public async Task QuitTest()
     {
         var result = await DialogService.ShowMessageBox(

@@ -37,6 +37,7 @@
     }
     else
     {
+        @*Login for existing user*@
         <EditForm Model="@model" OnValidSubmit="@ValidateLogin">
             <DataAnnotationsValidator />
             <MudGrid Spacing="2" Justify="Justify.FlexStart">
@@ -66,10 +67,15 @@
 
 @code{
 
+    // Model to get login info
     private LoginModel model = new LoginModel();
+
+    // Model to get user info 
     private NewUser usermodel = new NewUser();
 
+    // Manager to read, add new users
     private UserManager userManager;
+
     private bool IsNewUser;
 
     protected override void OnInitialized()
@@ -78,6 +84,10 @@
         userManager = new UserManager();
     }
 
+    /// <summary>
+    /// Validation to check for login.
+    /// </summary>
+    /// <param name="context"></param>
     private void ValidateLogin(EditContext context)
     {
         bool isLoggedIn = userManager.UserLogin(model.Username, model.Password);
@@ -86,10 +96,13 @@
         {
             RookieDriverContext.IsUserLoggedIn = true;
             RookieDriverContext.LoggedInUsername = model.Username;
+
+            // Redirect to User main page
             navigationManager.NavigateTo("/user", forceLoad: true);
         }
         else
         {
+            // Send out the notification
             snackBarService.Add("Incorrect login credentials", Severity.Error, ops => 
             { 
                 ops.ActionColor = Color.Error; 
@@ -100,12 +113,17 @@
         }
     }
 
+    /// <summary>
+    /// Creating new User upon successful registration
+    /// </summary>
     private void CreateUser()
     {
+        // Attempting to create a new user
         var newuser = userManager.NewUser(usermodel.Email, usermodel.Username, usermodel.Password);
 
         if(newuser is not null)
         {
+            // Send notification on successfull registration
             snackBarService.Add("User created, Login to continue.", Severity.Success, ops =>
             {
                 ops.ActionVariant = Variant.Filled;
@@ -118,6 +136,7 @@
         else
         {
             IsNewUser = true;
+            // Send notification on unsuccessfull registration
             snackBarService.Add("User was not created, Try again.", Severity.Error, ops =>
             {
                 ops.ActionVariant = Variant.Filled;
@@ -126,17 +145,26 @@
         }
     }
 
+    /// <summary>
+    /// Show registraion page.
+    /// </summary>
     private void ShowRegisterUser()
     {
         IsNewUser = true;
     }
 
+    /// <summary>
+    /// Show login page
+    /// </summary>
     private void ShowLoginUser()
     {
         IsNewUser = false;
         usermodel = new();
     }
 
+    /// <summary>
+    /// Model to get login info
+    /// </summary>
     public class LoginModel
     {
         [Required]
@@ -146,6 +174,9 @@
         public string Username { get; set; }
     }
 
+    /// <summary>
+    /// Model to get User info
+    /// </summary>
     public class NewUser
     {
         [Required]
