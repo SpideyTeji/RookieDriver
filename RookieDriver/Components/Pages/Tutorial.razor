@@ -3,6 +3,7 @@
 @inject NavigationManager navigationManager
 
 <MudContainer>
+    @*Display tutorial info*@
     <MudGrid Justify="Justify.SpaceEvenly">
         <MudItem xs="12">
             <MudCarousel Class="mud-width-full" Style="height:500px;" ShowArrows="true" AutoCycle="false" TData="object">
@@ -45,13 +46,16 @@
         RookieDriverContext.InTutorial = true;
     }
 
+    /// <summary>
+    /// Close and go back to dashboard or login page.
+    /// </summary>
     public void CloseTutorial()
     {
         RookieDriverContext.InTutorial = false;
 
         if(RookieDriverContext.IsUserLoggedIn)
-            navigationManager.NavigateTo("/user", forceLoad: true);
+            navigationManager.NavigateTo("/user", forceLoad: true); // Go to dashboard if logged in.
         else
-            navigationManager.NavigateTo("/", forceLoad: true);
+            navigationManager.NavigateTo("/", forceLoad: true); // Go to login if not yet logged in.
     }
 }

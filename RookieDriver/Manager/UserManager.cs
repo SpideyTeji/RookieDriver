@@ -27,6 +27,7 @@ public class UserManager
         return false;
     }
 
+    // Check for valid email
     public bool ValidateEmail(string email)
     {
         foreach (User user in users)
@@ -73,6 +74,7 @@ public class UserManager
         return null;
     }
 
+    // Create a new User
     public User NewUser(string email, string username,string password) 
     {
         var newUser = new User(email, username,password);

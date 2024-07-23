@@ -8,10 +8,13 @@ namespace RookieDriver.JSON
 {
     public class JsonReadWrite
     {
+        // File path for Question data.
         public static string Filepath = $"{Directory.GetCurrentDirectory()}\\Data\\QuestionBank.json";
 
+        // File path for User data.
         public static string Userpath = $"{Directory.GetCurrentDirectory()}\\Data\\UserData.json";
 
+        // Reading all the questions from Question data file.
         public static List<Question> ReadQuestions()
         { 
             string jsonString = File.ReadAllText(Filepath);
@@ -19,6 +22,7 @@ namespace RookieDriver.JSON
             return questionFromJSON.ToList();
         }
 
+        // Reading all the users from Users data file.
         public static List<User> ReadUsers()
         {
             string jsonString = File.ReadAllText(Userpath);
@@ -30,6 +34,7 @@ namespace RookieDriver.JSON
             return userFromJSON.ToList();
         }
 
+        // Writing user info to User data file.
         public static void WriteUsers(List<User> users)
         {
             var settings = new JsonSerializerSettings

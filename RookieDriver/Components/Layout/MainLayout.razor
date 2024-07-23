@@ -6,6 +6,7 @@
 <MudSnackbarProvider />
 
 <MudLayout>
+    <!--Menu bar for the application-->
     <MudAppBar>
        Rookie Driver
         <MudSpacer />
@@ -28,9 +29,8 @@
         <MudToggleIconButton @bind-Toggled="@isDarkMode" Icon="@Icons.Material.Filled.DarkMode" Color="Color.Tertiary" Title="Switch To Dark"
                              ToggledIcon="@Icons.Material.Filled.LightMode" ToggledColor="Color.Warning" ToggledTitle="Switch To Light"/>
     </MudAppBar>
-@*     <MudDrawer @bind-Open="@_drawerOpen">
-        <NavMenu/>
-    </MudDrawer> *@
+
+    <!--Main body of the Application-->
     <MudMainContent>
         <MudContainer MaxWidth="MaxWidth.ExtraExtraLarge" Class="flex-fill flex-grow-0">
             @Body
@@ -39,16 +39,13 @@
 </MudLayout>
 
 @code {
+    // Theme for the application
     private MudTheme _theme = new MudTheme();
     private bool isDarkMode;
 
-    bool _drawerOpen = true;
-
-    void DrawerToggle()
-    {
-        _drawerOpen = !_drawerOpen;
-    }
-
+    /// <summary>
+    /// Logout of the application and redirect
+    /// </summary>
     void Logout()
     {
         RookieDriverContext.IsUserLoggedIn = false;
@@ -56,6 +53,9 @@
         navigationManager.NavigateTo("/", true);
     }
 
+    /// <summary>
+    /// Redirect to login page.
+    /// </summary>
     void Login()
     {
         navigationManager.NavigateTo("/", true);

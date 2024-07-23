@@ -4,6 +4,9 @@ using Newtonsoft.Json;
 
 namespace RookieDriver.Models
 {
+    /// <summary>
+    /// Question Data model
+    /// </summary>
     public class Question
     {
         public string Description { get; set; }
@@ -22,6 +25,9 @@ namespace RookieDriver.Models
         public string ImageFilePath => $"images/{FileName}";
     }
 
+    /// <summary>
+    /// Option for the question
+    /// </summary>
     public class Option
     {
         public string Description { get; set; }
@@ -30,6 +36,9 @@ namespace RookieDriver.Models
         public int QuestionId { get; set; }
     }
 
+    /// <summary>
+    /// User data model
+    /// </summary>
     public class User
     {
         public User(string email, string username, string password)
@@ -49,6 +58,9 @@ namespace RookieDriver.Models
         public List<Test> ResultHistory { get; set; }
     }
 
+    /// <summary>
+    /// Test data model for each attempt
+    /// </summary>
     public class Test
     {
         [JsonIgnore]
