@@ -232,6 +232,20 @@
         "PassScore": 5,
         "TestDate": "19/07/2024 02:14 PM",
         "Username": "Admin"
+      },
+      {
+        "FinalScore": 2,
+        "TotalScore": 5,
+        "PassScore": 5,
+        "TestDate": "21/07/2024 08:21 PM",
+        "Username": "Admin"
+      },
+      {
+        "FinalScore": 2,
+        "TotalScore": 5,
+        "PassScore": 5,
+        "TestDate": "21/07/2024 08:21 PM",
+        "Username": "Admin"
       }
     ]
   },
@@ -252,5 +266,66 @@
     "Username": "NewUser",
     "Password": "Use%rName5",
     "ResultHistory": []
+  },
+  {
+    "Email": "Admin@gmail.com",
+    "Username": "Admin",
+    "Password": "Admin@123",
+    "ResultHistory": []
+  },
+  {
+    "Email": "Admin@gmail.com",
+    "Username": "Admin1",
+    "Password": "Admin@123",
+    "ResultHistory": [
+      {
+        "FinalScore": 0,
+        "TotalScore": 5,
+        "PassScore": 5,
+        "TestDate": "21/07/2024 08:23 PM",
+        "Username": "Admin1"
+      },
+      {
+        "FinalScore": 1,
+        "TotalScore": 5,
+        "PassScore": 5,
+        "TestDate": "21/07/2024 08:24 PM",
+        "Username": "Admin1"
+      },
+      {
+        "FinalScore": 4,
+        "TotalScore": 5,
+        "PassScore": 5,
+        "TestDate": "21/07/2024 08:24 PM",
+        "Username": "Admin1"
+      }
+    ]
+  },
+  {
+    "Email": "Admin2@gmail.com",
+    "Username": "Admin",
+    "Password": "Admin@123",
+    "ResultHistory": []
+  },
+  {
+    "Email": "Admin@gmail.com",
+    "Username": "Admin3",
+    "Password": "Admin@123",
+    "ResultHistory": [
+      {
+        "FinalScore": 0,
+        "TotalScore": 5,
+        "PassScore": 5,
+        "TestDate": "22/07/2024 05:22 PM",
+        "Username": "Admin3"
+      },
+      {
+        "FinalScore": 2,
+        "TotalScore": 5,
+        "PassScore": 5,
+        "TestDate": "22/07/2024 05:23 PM",
+        "Username": "Admin3"
+      }
+    ]
   }
 ]
